@@ -118,7 +118,7 @@ function BRight()
 	document.write("<a target=\"_blank\" href=\"http://tysoftblog.blog.163.com/\">网易博客(技术)</a><br/>\r\n");
 	document.write("<a target=\"_blank\" href=\"http://blog.sina.com.cn/tysoftblog\">新浪博客(技术)</a><br/></p>\r\n");
 	
-	document.write("<hr/><a target=\"_blank\" href=\"https://www.upyun.com/\"><img src=\"http://upfiles.b0.upaiyun.com/logo/90x45.png\" alt=\"UPYUN\"></a>");
+	//document.write("<hr/><a target=\"_blank\" href=\"https://www.upyun.com/\"><img src=\"http://upfiles.b0.upaiyun.com/logo/90x45.png\" alt=\"UPYUN\"></a>");
 	
 	document.write("<hr/><a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/cn/\"><img alt=\"知识共享许可协议\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc-nd/3.0/cn/88x31.png\" /></a><br />本网站所有作品采用<a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/cn/\">知识共享署名-非商业性使用-禁止演绎 3.0 许可协议</a>进行许可。");
 	document.write("</div>\r\n");
