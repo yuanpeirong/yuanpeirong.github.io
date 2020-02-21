@@ -85,17 +85,12 @@ function bdA2(theid)
 function BRight()
 {
 	document.write("<div id=\"BRight\">\r\n");
-	document.write("<div id=\"BR2\">\r\n");
-	document.write("<div class=\"cBR1\">\r\n");
-	document.write("<p><a target=\"_blank\" href=\"old/index.html\">访问旧版网站</a></p><hr/>\r\n");
-	document.write("</div>\r\n");
-	document.write("</div>\r\n");
 	document.write("<div id=\"BR1\">\r\n");
 	document.write("<div class=\"cBR1\">\r\n");
 	document.write("<p class=\"cBRID\">文章推荐</p>\r\n");
 	document.write("<p><a target=\"_blank\" href=\"http://www.yprnet.com/word20121226.html\">Word排版2013</a><br/>\r\n");
-	document.write("<a target=\"_blank\" href=\"http://blog.yprnet.com/ty/word20120226\">Word排版2010</a><br/>\r\n");
-	document.write("<a target=\"_blank\" href=\"http://bbs.wps.cn/thread-22354036-1-1.html\">Word/WPS排版</a><br/></p>\r\n");
+	//document.write("<a target=\"_blank\" href=\"http://blog.yprnet.com/ty/word20120226\">Word排版2010</a><br/>\r\n");
+	//document.write("<a target=\"_blank\" href=\"http://bbs.wps.cn/thread-22354036-1-1.html\">Word/WPS排版</a><br/></p>\r\n");
 	document.write("<hr/>\r\n");
 	document.write("<p class=\"cBRID\">我的邮箱</p>\r\n");
 	document.write("<p><a target=\"_blank\" href=\"https://mail.yprnet.com/\">yprnet.com</a>&nbsp;<a target=\"_blank\" href=\"https://mail.vip.yprnet.com/\">VIP</a><br/><a target=\"_blank\" href=\"https://mail.ypr.pw/\">ypr.pw</a>&nbsp;<a target=\"_blank\" href=\"https://mail.vip.ypr.pw/\">VIP(网易)</a><br/><a target=\"_blank\" href=\"https://mail.yuanpeirong.cn/\">yuanpeirong.cn</a>&nbsp;<a target=\"_blank\" href=\"https://mail.vip.yuanpeirong.cn/\">VIP</a><br/><a target=\"_blank\" href=\"https://mail.yuanpeirong.com.cn/\">域名邮箱</a>&nbsp;<a target=\"_blank\" href=\"https://mail.vip.yuanpeirong.com.cn/\">VIP</a><br/><a target=\"_blank\" href=\"https://mail.yprmail.tk/\">yprmail.tk</a>&nbsp;<a target=\"_blank\" href=\"https://domains.live.com/members/signup.aspx?domain=yprmail.tk\">注册</a><br/>\r\n");
@@ -121,9 +116,15 @@ function BRight()
 	//document.write("<hr/><a target=\"_blank\" href=\"https://www.upyun.com/\"><img src=\"http://upfiles.b0.upaiyun.com/logo/90x45.png\" alt=\"UPYUN\"></a>");
 	
 	document.write("<hr/><a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/cn/\"><img alt=\"知识共享许可协议\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc-nd/3.0/cn/88x31.png\" /></a><br />本网站所有作品采用<a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/cn/\">知识共享署名-非商业性使用-禁止演绎 3.0 许可协议</a>进行许可。");
+	document.write("<p><hr/><a target=\"_blank\" href=\"old/index.html\">访问旧版网站</a></p>\r\n");
 	document.write("</div>\r\n");
 	document.write("</div>\r\n");
 	document.write("</div>\r\n");
+	//document.write("<div id=\"BR2\">\r\n");
+	//document.write("<div class=\"cBR1\">\r\n");
+	//document.write("<p><hr/><a target=\"_blank\" href=\"old/index.html\">访问旧版网站</a></p>\r\n");
+	//document.write("</div>\r\n");
+	//document.write("</div>\r\n");
 }
 
 function bdC0()
@@ -137,8 +138,8 @@ function bdC()
 {
 	document.write("<div id=\"bdC\">\r\n");
 	document.write("<div class=\"cbdC\">\r\n");
-	document.write("<p align=\"center\">我拥有正版Microsoft Office 2010/2013及最新版本的Kingsoft WPS Office软件</p>\r\n");
-	document.write("<p align=\"center\">我是WPS测试体验团成员，拥有使用不公开发行的WPS实验室版权利</p>\r\n");
+	//document.write("<p align=\"center\">我拥有正版Microsoft Office 2010/2013及最新版本的Kingsoft WPS Office软件</p>\r\n");
+	//document.write("<p align=\"center\">我是WPS测试体验团成员，拥有使用不公开发行的WPS实验室版权利</p>\r\n");
 	document.write("<p align=\"center\">技术交流： <a target=\"_blank\" href=\"mailto:ypr@yprnet.com\">ypr@yprnet.com</a></p>\r\n");
 	
 	var browser=navigator.appName
@@ -147,11 +148,13 @@ function bdC()
 	if (browser=="Microsoft Internet Explorer")
 	{
 	    //if (ver=="6.0" || ver=="7.0")
-		document.write("<p align=\"center\">版权所有 &copy; 2010-2015 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a></p>\r\n");
+		document.write("<p align=\"center\">版权所有 &copy; 2010-2019 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a></p>\r\n<p align=\"center\"><a target=\"_blank\" href=\"http://www.beian.miit.gov.cn\">浙ICP备15010776号-1</a></p>");
 	}
 	else
 	{
-		document.write("<p align=\"center\">版权所有 &copy; 2010-2015 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a>&nbsp;<script src=\"http://s96.cnzz.com/stat.php?id=4909183&web_id=4909183&show=pic1\" language=\"JavaScript\"></script></p>\r\n");
+		document.write("<p align=\"center\">版权所有 &copy; 2010-2020 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a>&nbsp;<script src=\"http://s96.cnzz.com/stat.php?id=4909183&web_id=4909183&show=pic1\" language=\"JavaScript\"></script></p>\r\n<p align=\"center\"><a target=\"_blank\" href=\"http://www.beian.miit.gov.cn\">浙ICP备15010776号-1</a></p>"
+		
+		);
 	}
 	
 	document.write("</div>\r\n");
