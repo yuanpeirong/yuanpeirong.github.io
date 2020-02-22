@@ -140,7 +140,7 @@ function bdC()
 	document.write("<div class=\"cbdC\">\r\n");
 	//document.write("<p align=\"center\">我拥有正版Microsoft Office 2010/2013及最新版本的Kingsoft WPS Office软件</p>\r\n");
 	//document.write("<p align=\"center\">我是WPS测试体验团成员，拥有使用不公开发行的WPS实验室版权利</p>\r\n");
-	document.write("<p align=\"center\">技术交流： <a target=\"_blank\" href=\"mailto:ypr@yprnet.com\">ypr@yprnet.com</a></p>\r\n");
+	document.write("<p align=\"center\">技术交流： <a target=\"_blank\" href=\"mailto:ypr@yprnet.com\">ypr@yprnet.com</a>、<a target=\"_blank\" href=\"mailto:ypr@yuanpeirong.com\">ypr@yuanpeirong.com</a></p>\r\n");
 	
 	var browser=navigator.appName
 	//var b_version=navigator.appVersion
