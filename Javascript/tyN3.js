@@ -93,7 +93,7 @@ function BRight()
 	//document.write("<a target=\"_blank\" href=\"http://bbs.wps.cn/thread-22354036-1-1.html\">Word/WPS排版</a><br/></p>\r\n");
 	document.write("<hr/>\r\n");
 	document.write("<p class=\"cBRID\">我的邮箱</p>\r\n");
-	document.write("<p><a target=\"_blank\" href=\"https://exmail.qq.com/login\">yprnet.com</a><br/><a target=\"_blank\" href=\"https://mail.yuanpeirng.com/\">yuanpeirng.com</a><br/><a target=\"_blank\" href=\"https://exmail.qq.com/login\">yuanpeirng.cn</a><br/><a target=\"_blank\" href=\"http://domain.mail.qq.com/\">yuanpeirong.com.cn</a><br/>\r\n");
+	document.write("<p><a target=\"_blank\" href=\"https://exmail.qq.com/login\">yprnet.com</a><br/><a target=\"_blank\" href=\"http://mail.yuanpeirong.com/\">yuanpeirong.com</a><br/><a target=\"_blank\" href=\"https://exmail.qq.com/login\">yuanpeirong.cn</a><br/><a target=\"_blank\" href=\"http://domain.mail.qq.com/\">yuanpeirong.com.cn</a><br/>\r\n");
 	document.write("<a target=\"_blank\" href=\"mailto:ypr@yprnet.com\">给我写信</a><br/>\r\n");
 	document.write("<hr/>\r\n");
 	document.write("<p class=\"cBRID\">我的软件</p>\r\n");
