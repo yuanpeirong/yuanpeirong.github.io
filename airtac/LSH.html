@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="AirTAC,亚德客,线轨,导轨,线性滑轨,寿命计算,工具" />
+<meta name="description" content="AirTAC线性滑轨寿命计算工具" />
+<meta name="author" content="YuanPeirong" />
+<title>AirTAC线性滑轨寿命计算工具</title>
+<link href="css/index.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/LSH.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" language="JavaScript" src="Javascript/LSH.js"></script>
+<script type="text/javascript">
+function MyShowIMG1() 
+{
+	if (document.getElementById("ID_selectSYZT").value=="SYZT_1")
+	{document.getElementById("ID_MyShowIMG1").src="images/SYZT1.png";}
+	if (document.getElementById("ID_selectSYZT").value=="SYZT_2")
+	{document.getElementById("ID_MyShowIMG1").src="images/SYZT2.png";}
+	if (document.getElementById("ID_selectSYZT").value=="SYZT_3")
+	{document.getElementById("ID_MyShowIMG1").src="images/SYZT3.png";}
+}
+</script>
+</head>
+
+<body>
+<div id="tybd">
+    <div id="tyLogo"><img src="images/AirTAC_Logo.png" width="172" height="56" /></div>
+	<div id="tyTitleLSH">LSH系列线性滑轨寿命计算工具</div>
+	
+	<div id="tyForm1">
+		<p>1、请选择型号：</p>
+		<p>2、请选择使用状态：</p>
+		<p>3、请选择使用导轨根数，滑块数：</p>
+	</div>
+	<div id="tyForm2">
+		<p><select name="selectXH" style="width:250px;height50px;font-size:16px;">
+		    <option value="XH_LSH15">LSH15
+		    <option value="XH_LSH15">LSH20
+		    <option value="XH_LSH15">LSH25
+		    <option value="XH_LSH15">LSH30
+		    <option value="XH_LSH15">LSH35			
+		</select></p>
+		<p><select name="selectSYZT" id="ID_selectSYZT" style="width:250px;height50px;font-size:16px;" onchange="MyShowIMG1()">
+		    <option value="SYZT_1">水平使用
+		    <option value="SYZT_2">直立使用
+		    <option value="SYZT_3">挂壁使用	
+		</select></p>
+		<p><select name="selectDGSandHKS" style="width:250px;height50px;font-size:16px;">
+		    <option value="DGSandHKS_11">1根导轨，1个滑块
+		    <option value="DGSandHKS_12">1根导轨，2个滑块
+		    <option value="DGSandHKS_13">1根导轨，3个滑块
+			<option value="DGSandHKS_14">1根导轨，4个滑块
+		    <option value="DGSandHKS_21">2根平行导轨，每根导轨1个滑块
+		    <option value="DGSandHKS_22">2根平行导轨，每根导轨2个滑块
+		    <option value="DGSandHKS_23">2根平行导轨，每根导轨3个滑块
+			<option value="DGSandHKS_24">2根平行导轨，每根导轨4个滑块
+		</select></p>
+		<input type="button" name="btn_next1" value="下一步" onclick="" style="width:100px;height50px;font-size:16px;">
+	</div>
+	<div id="tyForm3">
+		<p><img id="ID_MyShowIMG1" src="images/SYZT1.png" width="250" /></p>
+	</div>
+</div>
+</body>
+</html>
