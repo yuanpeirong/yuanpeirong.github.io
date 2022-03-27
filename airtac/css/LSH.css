@@ -1,0 +1,40 @@
+#tyTitleLSH {/*LogoTitle*/
+    width: 682px;
+	margin: 20px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:400px;
+    color: #000000;
+    font-size: 36px;
+	font-weight: bold;
+}
+
+#tyForm1 {/*表单部分*/
+    width: 258px;
+	margin: 120px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:192px;
+    color: #000000;
+    font-size: 16px;
+}
+
+#tyForm2 {/*表单部分*/
+    width: 250;
+	margin: 120px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:450px;
+    color: #000000;
+    font-size: 16px;
+}
+
+#tyForm3 {/*表单部分*/
+    width: 250;
+	margin: 120px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:750px;
+    color: #000000;
+    font-size: 16px;
+}
