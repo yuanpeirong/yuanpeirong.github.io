@@ -1,0 +1,1 @@
+"C:\Program Files\Internet Explorer\iexplore.exe" %~dp0index.html
