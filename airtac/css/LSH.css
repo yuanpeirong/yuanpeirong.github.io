@@ -1,0 +1,58 @@
+#tyTitleLSH {/*LogoTitle*/
+    width: 682px;
+	margin: 20px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:400px;
+    color: #000000;
+    font-size: 36px;
+	font-weight: bold;
+}
+
+#tyForm11 {/*表单部分*/
+    width: 258px;
+	margin: 120px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:192px;
+    color: #000000;
+    font-size: 16px;
+	font-family: Consolas, Arial, Helvetica, sans-serif;
+}
+
+#tyForm21 {/*表单部分*/
+    width: 250;
+	margin: 120px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:450px;
+    color: #000000;
+    font-size: 16px;
+}
+
+#tyForm31 {/*表单部分*/
+    width: 350;
+	margin: 80px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:750px;
+    color: #000000;
+    font-size: 16px;
+}
+
+#tyFormJG {/*结果显示*/
+    width: 508;
+	margin: 1650px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:192px;
+    color: #000000;
+    font-size: 16px;
+}
+
+table,tr,th,td {
+	border: 1px solid #aaa;
+    border-collapse: collapse;
+	cellpadding: 0;
+	cellspacing: 0;
+}
