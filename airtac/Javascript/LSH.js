@@ -4,7 +4,7 @@ var fs=0, L=0, Lh=0; //此为需求输出结果
 //默认参数
 var fH=1;
 var fT=1;
-var g=10;
+var g=9.8;
 
 //此部分为用户输入参数
 var C=0, C0=0, MR=0, HK_L=0, HK_d=0;   //对于LRM C=C100B 单位 N N Nm   //滑块的长和宽
@@ -74,6 +74,7 @@ function ToCalculation()
 		SetPR_PT();//取得PR  PT
 		SetPE_max();
 		SetPm_max();
+		SetDGS1_HKS1_T0_G0();
 		
 		fs=C0/PE_max;
 		if ((XL=="LSH")||(XL=="LSD"))
@@ -379,7 +380,7 @@ function GetPm(CPE_0,CPE_1,CPE_2,CPE_3,CPE_4)
 	cls=cls+Math.pow(CPE_3,3)*L1; //右加
 	cls=cls+Math.pow(CPE_4,3)*L3; //右减
 	cls=cls/(2*Ls);
-	return Math.pow(cls,1/3);  
+	return Math.pow(cls,1/3);
 }
 
 //取得 PR PT
@@ -630,6 +631,16 @@ function SetPm_max()
 	Pm_max=Math.max(Pm[1],Pm[2],Pm[3],Pm[4],Pm[5],Pm[6],Pm[7],Pm[8]);
 }
 
+function SetDGS1_HKS1_T0_G0() //单轨单块，且不加速，负载位于滑块表面中心
+{
+	if ((SYZT==1)&&(DGS==1)&&(HKS==1)&&(T1==0)&&(T3==00)&&(Br==00)&&(Bt==00)&&(Ga1==00)&&(Gt1==00)&&(Gr1==00)&&(Ga2==00)&&(Gt2==00)&&(Gr2==00))
+	{
+		PE_max=m1*10+m2*10;
+		Pm_max=PE_max;
+	}
+}
+
+
 //显示计算结果
 function SetJGTable(fs,L,Lh)
 {
@@ -645,6 +656,187 @@ function SetJGTable(fs,L,Lh)
     mytd.innerHTML = "　"+String(L);   //动态修改表格的内容
 	mytd = mytb.rows[3].cells[1]; //获取X行X列的mytd单元格
     mytd.innerHTML = "　"+String(Lh);   //动态修改表格的内容
+}
+
+function open_about_fw() 
+{
+	window.open("about_fw.html","_blank");
+}
+
+//onchange V
+function SetFw() 
+{
+	var v=0;
+	if (isNaN(document.getElementById("ID_text_V").value)==false) //是数字
+	{
+	    if (Number(document.getElementById("ID_text_V").value)<=0)
+	    {
+		   document.getElementById("ID_text_V").value="";
+		   document.getElementById("ID_text_fw").value="";
+		}
+		else
+		{
+			v=Number(document.getElementById("ID_text_V").value);
+			if (v<=0.25) {document.getElementById("ID_text_fw").value=(1+(v/0.25)*0.2).toFixed(2);}
+			if (v>0.25 && v<=1) {document.getElementById("ID_text_fw").value=(1.2+((v-0.25)/0.75)*0.3).toFixed(2);}
+			if (v>1 && v<=2) {document.getElementById("ID_text_fw").value=(1.5+((v-1)/1)*0.5).toFixed(2);}
+			if (v>2 && v<=4) {document.getElementById("ID_text_fw").value=(2.0+((v-2)/2)*1.5).toFixed(2);}
+			if (v>4) {document.getElementById("ID_text_fw").value=(3.5).toFixed(2);}
+	    }
+	}
+	else
+	{
+		document.getElementById("ID_text_V").value="";
+		document.getElementById("ID_text_fw").value="";
+	}
+}
+
+function ISOK_fw() 
+{
+	if (isNaN(document.getElementById("ID_text_fw").value)==true) //不是数字
+	{document.getElementById("ID_text_fw").value="";}
+	if (Number(document.getElementById("ID_text_fw").value)<=0)
+	{document.getElementById("ID_text_fw").value="";}
+}
+
+function ISOK_T1() 
+{
+	if (isNaN(document.getElementById("ID_text_T1").value)==true) //不是数字
+	{document.getElementById("ID_text_T1").value="";}
+	if (Number(document.getElementById("ID_text_T1").value)<0)
+	{document.getElementById("ID_text_T1").value="";}
+}
+
+function ISOK_T3() 
+{
+	if (isNaN(document.getElementById("ID_text_T3").value)==true) //不是数字
+	{document.getElementById("ID_text_T3").value="";}
+	if (Number(document.getElementById("ID_text_T3").value)<0)
+	{document.getElementById("ID_text_T3").value="";}
+}
+
+function ISOK_Ls() 
+{
+	if (isNaN(document.getElementById("ID_text_Ls").value)==true) //不是数字
+	{document.getElementById("ID_text_Ls").value="";}
+	
+	//初始化要用的数据
+	V=Number(document.getElementById("ID_text_V").value);
+	T1=Number(document.getElementById("ID_text_T1").value);
+	T3=Number(document.getElementById("ID_text_T3").value);
+	Ls=Number(document.getElementById("ID_text_Ls").value);
+	Set_a_L();
+	if(Ls<(L1+L3))
+	{
+		window.alert("行程不能小于(X1+X3)="+String(L1+L3));
+		document.getElementById("ID_text_Ls").value="";
+	}
+	
+}
+
+function ISOK_n() 
+{
+	if (isNaN(document.getElementById("ID_text_n").value)==true) //不是数字
+	{document.getElementById("ID_text_n").value="";}
+	
+	//初始化要用的数据
+	V=Number(document.getElementById("ID_text_V").value);
+	T1=Number(document.getElementById("ID_text_T1").value);
+	T3=Number(document.getElementById("ID_text_T3").value);
+	Ls=Number(document.getElementById("ID_text_Ls").value);
+	n=Number(document.getElementById("ID_text_n").value);
+	Set_a_L();
+	var T_all=0;
+	T_all=T1+T3+L2*0.001/V;
+	if(n>(30/T_all))
+	{
+		window.alert("一分钟往复这个次数不能超次"+String(30/T_all));
+		document.getElementById("ID_text_n").value="";
+	}
+}
+
+function ISOK_Br() 
+{
+	if (isNaN(document.getElementById("ID_text_Br").value)==true) //不是数字
+	{document.getElementById("ID_text_Br").value="";}
+}
+
+function ISOK_Bt() 
+{
+	if (isNaN(document.getElementById("ID_text_Bt").value)==true) //不是数字
+	{document.getElementById("ID_text_Bt").value="";}
+}
+
+function ISOK_Rs() 
+{
+	if (isNaN(document.getElementById("ID_text_Rs").value)==true) //不是数字
+	{document.getElementById("ID_text_Rs").value="";}
+}
+
+function ISOK_Bs1() 
+{
+	if (isNaN(document.getElementById("ID_text_Bs1").value)==true) //不是数字
+	{document.getElementById("ID_text_Bs1").value="";}
+}
+
+function ISOK_Bs2() 
+{
+	if (isNaN(document.getElementById("ID_text_Bs2").value)==true) //不是数字
+	{document.getElementById("ID_text_Bs2").value="";}
+}
+
+function ISOK_Bs3() 
+{
+	if (isNaN(document.getElementById("ID_text_Bs3").value)==true) //不是数字
+	{document.getElementById("ID_text_Bs3").value="";}
+}
+
+function ISOK_m1() 
+{
+	if (isNaN(document.getElementById("ID_text_m1").value)==true) //不是数字
+	{document.getElementById("ID_text_m1").value="";}
+}
+
+function ISOK_Ga1() 
+{
+	if (isNaN(document.getElementById("ID_text_Ga1").value)==true) //不是数字
+	{document.getElementById("ID_text_Ga1").value="";}
+}
+
+function ISOK_Gt1() 
+{
+	if (isNaN(document.getElementById("ID_text_Gt1").value)==true) //不是数字
+	{document.getElementById("ID_text_Gt1").value="";}
+}
+
+function ISOK_Gr1() 
+{
+	if (isNaN(document.getElementById("ID_text_Gr1").value)==true) //不是数字
+	{document.getElementById("ID_text_Gr1").value="";}
+}
+
+function ISOK_m2() 
+{
+	if (isNaN(document.getElementById("ID_text_m2").value)==true) //不是数字
+	{document.getElementById("ID_text_m2").value="";}
+}
+
+function ISOK_Ga2() 
+{
+	if (isNaN(document.getElementById("ID_text_Ga2").value)==true) //不是数字
+	{document.getElementById("ID_text_Ga2").value="";}
+}
+
+function ISOK_Gt2() 
+{
+	if (isNaN(document.getElementById("ID_text_Gt2").value)==true) //不是数字
+	{document.getElementById("ID_text_Gt2").value="";}
+}
+
+function ISOK_Gr2() 
+{
+	if (isNaN(document.getElementById("ID_text_Gr2").value)==true) //不是数字
+	{document.getElementById("ID_text_Gr2").value="";}
 }
 
 function MyShowIMG1() 
@@ -1042,183 +1234,790 @@ function MyShowIMG1()
 }
 
 
-function open_about_fw() 
+function MyShowIMG1D() 
 {
-	window.open("about_fw.html","_blank");
-}
-
-//onchange V
-function SetFw() 
-{
-	var v=0;
-	if (isNaN(document.getElementById("ID_text_V").value)==false) //是数字
+	switch(document.getElementById("ID_selectSYZT").value)
 	{
-	    if (Number(document.getElementById("ID_text_V").value)<=0)
-	    {
-		   document.getElementById("ID_text_V").value="";
-		   document.getElementById("ID_text_fw").value="";
-		}
-		else
-		{
-			v=Number(document.getElementById("ID_text_V").value);
-			if (v<=0.25) {document.getElementById("ID_text_fw").value=(1+(v/0.25)*0.2).toFixed(2);}
-			if (v>0.25 && v<=1) {document.getElementById("ID_text_fw").value=(1.2+((v-0.25)/0.75)*0.3).toFixed(2);}
-			if (v>1 && v<=2) {document.getElementById("ID_text_fw").value=(1.5+((v-1)/1)*0.5).toFixed(2);}
-			if (v>2 && v<=4) {document.getElementById("ID_text_fw").value=(2.0+((v-2)/2)*1.5).toFixed(2);}
-			if (v>4) {document.getElementById("ID_text_fw").value=(3.5).toFixed(2);}
-	    }
+		case "SYZT_1":
+			switch(document.getElementById("ID_selectDGSandHKS").value)
+			{
+				case "DGSandHKS_11":
+					document.getElementById("ID_MyShowIMG1D").src="images/1-1-1D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/h_1_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_1_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_1_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_12":
+					document.getElementById("ID_MyShowIMG1D").src="images/1-1-2D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/h_1_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_1_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_1_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_13":
+					document.getElementById("ID_MyShowIMG1D").src="images/1-1-3D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/h_1_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_1_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_1_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_14":
+					document.getElementById("ID_MyShowIMG1D").src="images/1-1-4D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/h_1_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_1_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_1_4_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_21":
+					document.getElementById("ID_MyShowIMG1D").src="images/1-2-1D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/h_2_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_2_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_2_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_22":
+					document.getElementById("ID_MyShowIMG1D").src="images/1-2-2D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/h_2_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_2_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_2_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_23":
+					document.getElementById("ID_MyShowIMG1D").src="images/1-2-3D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/h_2_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_2_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_2_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_24":
+					document.getElementById("ID_MyShowIMG1D").src="images/1-2-4D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/h_2_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_2_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/h_2_4_m2.png";break;
+					}
+					break;
+			}
+			break;
+		case "SYZT_2":
+			switch(document.getElementById("ID_selectDGSandHKS").value)
+			{
+				case "DGSandHKS_11":
+					document.getElementById("ID_MyShowIMG1D").src="images/2-1-1D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/v_1_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_1_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_1_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_12":
+					document.getElementById("ID_MyShowIMG1D").src="images/2-1-2D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/v_1_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_1_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_1_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_13":
+					document.getElementById("ID_MyShowIMG1D").src="images/2-1-3D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/v_1_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_1_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_1_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_14":
+					document.getElementById("ID_MyShowIMG1D").src="images/2-1-4D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/v_1_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_1_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_1_4_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_21":
+					document.getElementById("ID_MyShowIMG1D").src="images/2-2-1D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/v_2_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_2_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_2_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_22":
+					document.getElementById("ID_MyShowIMG1D").src="images/2-2-2D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/v_2_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_2_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_2_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_23":
+					document.getElementById("ID_MyShowIMG1D").src="images/2-2-3D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/v_2_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_2_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_2_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_24":
+					document.getElementById("ID_MyShowIMG1D").src="images/2-2-4D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/v_2_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_2_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/v_2_4_m2.png";break;
+					}
+					break;
+			}
+			break;
+		case "SYZT_3":
+			switch(document.getElementById("ID_selectDGSandHKS").value)
+			{
+				case "DGSandHKS_11":
+					document.getElementById("ID_MyShowIMG1D").src="images/3-1-1D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/k_1_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_1_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_1_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_12":
+					document.getElementById("ID_MyShowIMG1D").src="images/3-1-2D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/k_1_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_1_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_1_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_13":
+					document.getElementById("ID_MyShowIMG1D").src="images/3-1-3D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/k_1_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_1_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_1_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_14":
+					document.getElementById("ID_MyShowIMG1D").src="images/3-1-4D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/k_1_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_1_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_1_4_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_21":
+					document.getElementById("ID_MyShowIMG1D").src="images/3-2-1D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/k_2_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_2_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_2_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_22":
+					document.getElementById("ID_MyShowIMG1D").src="images/3-2-2D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/k_2_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_2_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_2_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_23":
+					document.getElementById("ID_MyShowIMG1D").src="images/3-2-3D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/k_2_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_2_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_2_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_24":
+					document.getElementById("ID_MyShowIMG1D").src="images/3-2-4D.jpg";
+					document.getElementById("ID_MyShowIMG3D").src="images/k_2_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_2_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4D").src="images/k_2_4_m2.png";break;
+					}
+					break;
+			}
+			break;
 	}
-	else
-	{
-		document.getElementById("ID_text_V").value="";
-		document.getElementById("ID_text_fw").value="";
-	}
-}
-
-function ISOK_fw() 
-{
-	if (isNaN(document.getElementById("ID_text_fw").value)==true) //不是数字
-	{document.getElementById("ID_text_fw").value="";}
-	if (Number(document.getElementById("ID_text_fw").value)<=0)
-	{document.getElementById("ID_text_fw").value="";}
-}
-
-function ISOK_T1() 
-{
-	if (isNaN(document.getElementById("ID_text_T1").value)==true) //不是数字
-	{document.getElementById("ID_text_T1").value="";}
-	if (Number(document.getElementById("ID_text_T1").value)<0)
-	{document.getElementById("ID_text_T1").value="";}
-}
-
-function ISOK_T3() 
-{
-	if (isNaN(document.getElementById("ID_text_T3").value)==true) //不是数字
-	{document.getElementById("ID_text_T3").value="";}
-	if (Number(document.getElementById("ID_text_T3").value)<0)
-	{document.getElementById("ID_text_T3").value="";}
-}
-
-function ISOK_Ls() 
-{
-	if (isNaN(document.getElementById("ID_text_Ls").value)==true) //不是数字
-	{document.getElementById("ID_text_Ls").value="";}
 	
-	//初始化要用的数据
-	V=Number(document.getElementById("ID_text_V").value);
-	T1=Number(document.getElementById("ID_text_T1").value);
-	T3=Number(document.getElementById("ID_text_T3").value);
-	Ls=Number(document.getElementById("ID_text_Ls").value);
-	Set_a_L();
-	if(Ls<(L1+L3))
+	switch(document.getElementById("ID_selectDGSandHKS").value)
 	{
-		window.alert("行程不能小于(X1+X3)="+String(L1+L3));
-		document.getElementById("ID_text_Ls").value="";
+	case "DGSandHKS_11":
+		document.getElementById("ID_1_Rs").style.visibility="hidden";
+		document.getElementById("ID_1_Bs1").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs2").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="hidden";		
+		document.getElementById("ID_2_Bs1").style.visibility="hidden";
+		document.getElementById("ID_2_Bs2").style.visibility="hidden";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";
+		break;
+	case "DGSandHKS_12":
+		document.getElementById("ID_1_Rs").style.visibility="hidden";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="hidden";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="hidden";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";	
+		break;
+	case "DGSandHKS_13":
+		document.getElementById("ID_1_Rs").style.visibility="hidden";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="visible";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="hidden";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="visible";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";	
+		break;
+	case "DGSandHKS_14":
+		document.getElementById("ID_1_Rs").style.visibility="hidden";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="visible";		
+		document.getElementById("ID_1_Bs3").style.visibility="visible";		
+		document.getElementById("ID_2_Rs").style.visibility="hidden";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="visible";
+		document.getElementById("ID_2_Bs3").style.visibility="visible";	
+		break;
+	case "DGSandHKS_21":
+		document.getElementById("ID_1_Rs").style.visibility="visible";
+		document.getElementById("ID_1_Bs1").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs2").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="visible";		
+		document.getElementById("ID_2_Bs1").style.visibility="hidden";
+		document.getElementById("ID_2_Bs2").style.visibility="hidden";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";
+		break;
+	case "DGSandHKS_22":
+		document.getElementById("ID_1_Rs").style.visibility="visible";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="visible";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="hidden";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";
+		break;
+	case "DGSandHKS_23":
+		document.getElementById("ID_1_Rs").style.visibility="visible";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="visible";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="visible";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="visible";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";
+		break;
+	case "DGSandHKS_24":
+		document.getElementById("ID_1_Rs").style.visibility="visible";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="visible";		
+		document.getElementById("ID_1_Bs3").style.visibility="visible";		
+		document.getElementById("ID_2_Rs").style.visibility="visible";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="visible";
+		document.getElementById("ID_2_Bs3").style.visibility="visible";
+		break;
 	}
 	
-}
-
-function ISOK_n() 
-{
-	if (isNaN(document.getElementById("ID_text_n").value)==true) //不是数字
-	{document.getElementById("ID_text_n").value="";}
-	
-	//初始化要用的数据
-	V=Number(document.getElementById("ID_text_V").value);
-	T1=Number(document.getElementById("ID_text_T1").value);
-	T3=Number(document.getElementById("ID_text_T3").value);
-	Ls=Number(document.getElementById("ID_text_Ls").value);
-	n=Number(document.getElementById("ID_text_n").value);
-	Set_a_L();
-	var T_all=0;
-	T_all=T1+T3+L2*0.001/V;
-	if(n>(30/T_all))
+	switch(document.getElementById("ID_selectFZnum").value)
 	{
-		window.alert("一分钟往复这个次数不能超次"+String(30/T_all));
-		document.getElementById("ID_text_n").value="";
+		case "FZnum_1":
+			document.getElementById("ID_1_m2").style.visibility="hidden";
+			document.getElementById("ID_1_Ga2").style.visibility="hidden";		
+			document.getElementById("ID_1_Gt2").style.visibility="hidden";		
+			document.getElementById("ID_1_Gr2").style.visibility="hidden";		
+			document.getElementById("ID_2_m2").style.visibility="hidden";		
+			document.getElementById("ID_2_Ga2").style.visibility="hidden";
+			document.getElementById("ID_2_Gt2").style.visibility="hidden";
+			document.getElementById("ID_2_Gr2").style.visibility="hidden";
+			break;
+		case "FZnum_2":
+			document.getElementById("ID_1_m2").style.visibility="visible";
+			document.getElementById("ID_1_Ga2").style.visibility="visible";		
+			document.getElementById("ID_1_Gt2").style.visibility="visible";		
+			document.getElementById("ID_1_Gr2").style.visibility="visible";		
+			document.getElementById("ID_2_m2").style.visibility="visible";		
+			document.getElementById("ID_2_Ga2").style.visibility="visible";
+			document.getElementById("ID_2_Gt2").style.visibility="visible";
+			document.getElementById("ID_2_Gr2").style.visibility="visible";
+			break;
 	}
 }
 
-function ISOK_Br() 
+function MyShowIMG1M() 
 {
-	if (isNaN(document.getElementById("ID_text_Br").value)==true) //不是数字
-	{document.getElementById("ID_text_Br").value="";}
-}
-
-function ISOK_Bt() 
-{
-	if (isNaN(document.getElementById("ID_text_Bt").value)==true) //不是数字
-	{document.getElementById("ID_text_Bt").value="";}
-}
-
-function ISOK_Rs() 
-{
-	if (isNaN(document.getElementById("ID_text_Rs").value)==true) //不是数字
-	{document.getElementById("ID_text_Rs").value="";}
-}
-
-function ISOK_Bs1() 
-{
-	if (isNaN(document.getElementById("ID_text_Bs1").value)==true) //不是数字
-	{document.getElementById("ID_text_Bs1").value="";}
-}
-
-function ISOK_Bs2() 
-{
-	if (isNaN(document.getElementById("ID_text_Bs2").value)==true) //不是数字
-	{document.getElementById("ID_text_Bs2").value="";}
-}
-
-function ISOK_Bs3() 
-{
-	if (isNaN(document.getElementById("ID_text_Bs3").value)==true) //不是数字
-	{document.getElementById("ID_text_Bs3").value="";}
-}
-
-function ISOK_m1() 
-{
-	if (isNaN(document.getElementById("ID_text_m1").value)==true) //不是数字
-	{document.getElementById("ID_text_m1").value="";}
-}
-
-function ISOK_Ga1() 
-{
-	if (isNaN(document.getElementById("ID_text_Ga1").value)==true) //不是数字
-	{document.getElementById("ID_text_Ga1").value="";}
-}
-
-function ISOK_Gt1() 
-{
-	if (isNaN(document.getElementById("ID_text_Gt1").value)==true) //不是数字
-	{document.getElementById("ID_text_Gt1").value="";}
-}
-
-function ISOK_Gr1() 
-{
-	if (isNaN(document.getElementById("ID_text_Gr1").value)==true) //不是数字
-	{document.getElementById("ID_text_Gr1").value="";}
-}
-
-function ISOK_m2() 
-{
-	if (isNaN(document.getElementById("ID_text_m2").value)==true) //不是数字
-	{document.getElementById("ID_text_m2").value="";}
-}
-
-function ISOK_Ga2() 
-{
-	if (isNaN(document.getElementById("ID_text_Ga2").value)==true) //不是数字
-	{document.getElementById("ID_text_Ga2").value="";}
-}
-
-function ISOK_Gt2() 
-{
-	if (isNaN(document.getElementById("ID_text_Gt2").value)==true) //不是数字
-	{document.getElementById("ID_text_Gt2").value="";}
-}
-
-function ISOK_Gr2() 
-{
-	if (isNaN(document.getElementById("ID_text_Gr2").value)==true) //不是数字
-	{document.getElementById("ID_text_Gr2").value="";}
+	switch(document.getElementById("ID_selectSYZT").value)
+	{
+		case "SYZT_1":
+			switch(document.getElementById("ID_selectDGSandHKS").value)
+			{
+				case "DGSandHKS_11":
+					document.getElementById("ID_MyShowIMG1M").src="images/1-1-1M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/h_1_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_1_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_1_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_12":
+					document.getElementById("ID_MyShowIMG1M").src="images/1-1-2M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/h_1_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_1_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_1_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_13":
+					document.getElementById("ID_MyShowIMG1M").src="images/1-1-3M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/h_1_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_1_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_1_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_14":
+					document.getElementById("ID_MyShowIMG1M").src="images/1-1-4M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/h_1_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_1_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_1_4_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_21":
+					document.getElementById("ID_MyShowIMG1M").src="images/1-2-1M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/h_2_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_2_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_2_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_22":
+					document.getElementById("ID_MyShowIMG1M").src="images/1-2-2M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/h_2_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_2_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_2_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_23":
+					document.getElementById("ID_MyShowIMG1M").src="images/1-2-3M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/h_2_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_2_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_2_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_24":
+					document.getElementById("ID_MyShowIMG1M").src="images/1-2-4M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/h_2_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_2_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/h_2_4_m2.png";break;
+					}
+					break;
+			}
+			break;
+		case "SYZT_2":
+			switch(document.getElementById("ID_selectDGSandHKS").value)
+			{
+				case "DGSandHKS_11":
+					document.getElementById("ID_MyShowIMG1M").src="images/2-1-1M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/v_1_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_1_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_1_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_12":
+					document.getElementById("ID_MyShowIMG1M").src="images/2-1-2M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/v_1_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_1_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_1_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_13":
+					document.getElementById("ID_MyShowIMG1M").src="images/2-1-3M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/v_1_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_1_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_1_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_14":
+					document.getElementById("ID_MyShowIMG1M").src="images/2-1-4M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/v_1_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_1_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_1_4_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_21":
+					document.getElementById("ID_MyShowIMG1M").src="images/2-2-1M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/v_2_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_2_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_2_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_22":
+					document.getElementById("ID_MyShowIMG1M").src="images/2-2-2M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/v_2_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_2_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_2_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_23":
+					document.getElementById("ID_MyShowIMG1M").src="images/2-2-3M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/v_2_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_2_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_2_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_24":
+					document.getElementById("ID_MyShowIMG1M").src="images/2-2-4M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/v_2_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_2_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/v_2_4_m2.png";break;
+					}
+					break;
+			}
+			break;
+		case "SYZT_3":
+			switch(document.getElementById("ID_selectDGSandHKS").value)
+			{
+				case "DGSandHKS_11":
+					document.getElementById("ID_MyShowIMG1M").src="images/3-1-1M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/k_1_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_1_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_1_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_12":
+					document.getElementById("ID_MyShowIMG1M").src="images/3-1-2M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/k_1_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_1_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_1_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_13":
+					document.getElementById("ID_MyShowIMG1M").src="images/3-1-3M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/k_1_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_1_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_1_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_14":
+					document.getElementById("ID_MyShowIMG1M").src="images/3-1-4M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/k_1_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_1_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_1_4_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_21":
+					document.getElementById("ID_MyShowIMG1M").src="images/3-2-1M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/k_2_1_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_2_1_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_2_1_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_22":
+					document.getElementById("ID_MyShowIMG1M").src="images/3-2-2M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/k_2_2_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_2_2_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_2_2_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_23":
+					document.getElementById("ID_MyShowIMG1M").src="images/3-2-3M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/k_2_3_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_2_3_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_2_3_m2.png";break;
+					}
+					break;
+				case "DGSandHKS_24":
+					document.getElementById("ID_MyShowIMG1M").src="images/3-2-4M.jpg";
+					document.getElementById("ID_MyShowIMG3M").src="images/k_2_4_dimension.png";
+					switch(document.getElementById("ID_selectFZnum").value)
+					{
+						case "FZnum_1":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_2_4_m1.png";break;
+						case "FZnum_2":
+						    document.getElementById("ID_MyShowIMG4M").src="images/k_2_4_m2.png";break;
+					}
+					break;
+			}
+			break;
+	}
+	
+	switch(document.getElementById("ID_selectDGSandHKS").value)
+	{
+	case "DGSandHKS_11":
+		document.getElementById("ID_1_Rs").style.visibility="hidden";
+		document.getElementById("ID_1_Bs1").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs2").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="hidden";		
+		document.getElementById("ID_2_Bs1").style.visibility="hidden";
+		document.getElementById("ID_2_Bs2").style.visibility="hidden";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";
+		break;
+	case "DGSandHKS_12":
+		document.getElementById("ID_1_Rs").style.visibility="hidden";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="hidden";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="hidden";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";	
+		break;
+	case "DGSandHKS_13":
+		document.getElementById("ID_1_Rs").style.visibility="hidden";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="visible";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="hidden";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="visible";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";	
+		break;
+	case "DGSandHKS_14":
+		document.getElementById("ID_1_Rs").style.visibility="hidden";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="visible";		
+		document.getElementById("ID_1_Bs3").style.visibility="visible";		
+		document.getElementById("ID_2_Rs").style.visibility="hidden";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="visible";
+		document.getElementById("ID_2_Bs3").style.visibility="visible";	
+		break;
+	case "DGSandHKS_21":
+		document.getElementById("ID_1_Rs").style.visibility="visible";
+		document.getElementById("ID_1_Bs1").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs2").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="visible";		
+		document.getElementById("ID_2_Bs1").style.visibility="hidden";
+		document.getElementById("ID_2_Bs2").style.visibility="hidden";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";
+		break;
+	case "DGSandHKS_22":
+		document.getElementById("ID_1_Rs").style.visibility="visible";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="hidden";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="visible";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="hidden";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";
+		break;
+	case "DGSandHKS_23":
+		document.getElementById("ID_1_Rs").style.visibility="visible";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="visible";		
+		document.getElementById("ID_1_Bs3").style.visibility="hidden";		
+		document.getElementById("ID_2_Rs").style.visibility="visible";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="visible";
+		document.getElementById("ID_2_Bs3").style.visibility="hidden";
+		break;
+	case "DGSandHKS_24":
+		document.getElementById("ID_1_Rs").style.visibility="visible";
+		document.getElementById("ID_1_Bs1").style.visibility="visible";		
+		document.getElementById("ID_1_Bs2").style.visibility="visible";		
+		document.getElementById("ID_1_Bs3").style.visibility="visible";		
+		document.getElementById("ID_2_Rs").style.visibility="visible";		
+		document.getElementById("ID_2_Bs1").style.visibility="visible";
+		document.getElementById("ID_2_Bs2").style.visibility="visible";
+		document.getElementById("ID_2_Bs3").style.visibility="visible";
+		break;
+	}
+	
+	switch(document.getElementById("ID_selectFZnum").value)
+	{
+		case "FZnum_1":
+			document.getElementById("ID_1_m2").style.visibility="hidden";
+			document.getElementById("ID_1_Ga2").style.visibility="hidden";		
+			document.getElementById("ID_1_Gt2").style.visibility="hidden";		
+			document.getElementById("ID_1_Gr2").style.visibility="hidden";		
+			document.getElementById("ID_2_m2").style.visibility="hidden";		
+			document.getElementById("ID_2_Ga2").style.visibility="hidden";
+			document.getElementById("ID_2_Gt2").style.visibility="hidden";
+			document.getElementById("ID_2_Gr2").style.visibility="hidden";
+			break;
+		case "FZnum_2":
+			document.getElementById("ID_1_m2").style.visibility="visible";
+			document.getElementById("ID_1_Ga2").style.visibility="visible";		
+			document.getElementById("ID_1_Gt2").style.visibility="visible";		
+			document.getElementById("ID_1_Gr2").style.visibility="visible";		
+			document.getElementById("ID_2_m2").style.visibility="visible";		
+			document.getElementById("ID_2_Ga2").style.visibility="visible";
+			document.getElementById("ID_2_Gt2").style.visibility="visible";
+			document.getElementById("ID_2_Gr2").style.visibility="visible";
+			break;
+	}
 }
