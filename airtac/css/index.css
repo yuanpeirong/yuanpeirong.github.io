@@ -65,6 +65,16 @@ body {
 	font-weight: bold;
 }
 
+#tySM {/*声明*/
+    width: 982px;
+	margin: 450px 0 0 0;
+	padding: 0;
+    position:absolute;
+    color: #000000;
+    font-size: 16px;
+	/*font-weight: bold;*/
+}
+
 /* 未被访问的链接 */
 a:link {
   color: blue;
