@@ -42,39 +42,79 @@ function GetnNavigatorUserAgent()
 
 function open_LSH()
 {
-	var Browser=GetnNavigatorUserAgent();
-	if (Browser=="IE")
+	var IsOKrun=PDdate();
+	if(IsOKrun)
 	{
-		window.open("LSH.html","_blank");
+		var Browser=GetnNavigatorUserAgent();
+		if (Browser=="IE")
+		{
+			window.open("LSH.html","_blank");
+		}
+		else
+		{
+			window.open("LSH_chrome.html","_blank");
+		}
 	}
 	else
 	{
-		window.open("LSH_chrome.html","_blank");
+		window.alert("beta版已到期，请联系亚德客获取新版。");
 	}
 }
 
 function open_LSD()
 {
-	var Browser=GetnNavigatorUserAgent();
-	if (Browser=="IE")
+	var IsOKrun=PDdate();
+	if(IsOKrun)
 	{
-		window.open("LSD.html","_blank");
+		var Browser=GetnNavigatorUserAgent();
+		if (Browser=="IE")
+		{
+			window.open("LSD.html","_blank");
+		}
+		else
+		{
+			window.open("LSD_chrome.html","_blank");
+		}
 	}
 	else
 	{
-		window.open("LSD_chrome.html","_blank");
+		window.alert("beta版已到期，请联系亚德客获取新版。");
 	}
 }
 
 function open_LRM()
 {
-	var Browser=GetnNavigatorUserAgent();
-	if (Browser=="IE")
+	var IsOKrun=PDdate();
+	if(IsOKrun)
 	{
-		window.open("LRM.html","_blank");
+		var Browser=GetnNavigatorUserAgent();
+		if (Browser=="IE")
+		{
+			window.open("LRM.html","_blank");
+		}
+		else
+		{
+			window.open("LRM_chrome.html","_blank");
+		}
 	}
 	else
 	{
-		window.open("LRM_chrome.html","_blank");
+		window.alert("beta版已到期，请联系亚德客获取新版。");
+	}
+}
+
+function PDdate()
+{
+	var x=new Date();
+	x.setFullYear(2022,5,1); //2022年6月1日
+	var today=new Date();
+	if (today>x)
+	{
+		return false;
+		
+	}
+	else
+	{
+		return true;
 	}
 }

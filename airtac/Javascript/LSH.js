@@ -56,9 +56,29 @@ var Pm=[0,0,0,0,0,0,0,0,0];
 var PE_max=0;
 var Pm_max=0;
 
+
+function PDdate()
+{
+	var x=new Date();
+	x.setFullYear(2022,5,1); //2022年6月1日
+	var today=new Date();
+	if (today>x)
+	{
+		return false;
+		
+	}
+	else
+	{
+		return true;
+	}
+}
+
+
 function ToCalculation()
 {
-	
+var IsOKrun=PDdate();
+if(IsOKrun)
+{
 	SetCSH();
 	GetUserInput();
 	Set_a_L();
@@ -88,6 +108,11 @@ function ToCalculation()
 		Lh=L*1000/(2*Ls*0.001*n*60);
 		SetJGTable(fs,L,Lh); //显示计算结果
 	}
+}
+else
+{
+	window.alert("beta版已到期，请联系亚德客获取新版。");
+}
 }
 
 //初始化所有数据
