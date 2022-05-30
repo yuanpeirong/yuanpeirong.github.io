@@ -52,12 +52,12 @@ function open_LSH()
 		}
 		else
 		{
-			window.open("LSH_chrome.html","_blank");
+			window.open("LSH.html","_blank"); //window.open("LSH_chrome.html","_blank");
 		}
 	}
 	else
 	{
-		window.alert("beta版已到期，请联系亚德客获取新版。");
+		window.alert("版本已到期，请联系亚德客获取新版。");
 	}
 }
 
@@ -73,12 +73,12 @@ function open_LSD()
 		}
 		else
 		{
-			window.open("LSD_chrome.html","_blank");
+			window.open("LSD.html","_blank");  //window.open("LSD_chrome.html","_blank");
 		}
 	}
 	else
 	{
-		window.alert("beta版已到期，请联系亚德客获取新版。");
+		window.alert("版本已到期，请联系亚德客获取新版。");
 	}
 }
 
@@ -94,19 +94,19 @@ function open_LRM()
 		}
 		else
 		{
-			window.open("LRM_chrome.html","_blank");
+			window.open("LRM.html","_blank");  //window.open("LRM_chrome.html","_blank");
 		}
 	}
 	else
 	{
-		window.alert("beta版已到期，请联系亚德客获取新版。");
+		window.alert("版本已到期，请联系亚德客获取新版。");
 	}
 }
 
 function PDdate()
 {
 	var x=new Date();
-	x.setFullYear(2022,5,1); //2022年6月1日
+	x.setFullYear(2022,11,31); //2022年12月31日
 	var today=new Date();
 	if (today>x)
 	{

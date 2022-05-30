@@ -66,11 +66,21 @@ body {
 }
 
 #tySM {/*声明*/
-    width: 982px;
+    width: 800px;
 	margin: 450px 0 0 0;
 	padding: 0;
     position:absolute;
     color: #000000;
+    font-size: 16px;
+	/*font-weight: bold;*/
+}
+
+#tySM2 {/*声明2*/
+    width: 800px;
+	margin: 550px 0 0 0;
+	padding: 0;
+    position:absolute;
+    color: #555555;
     font-size: 16px;
 	/*font-weight: bold;*/
 }

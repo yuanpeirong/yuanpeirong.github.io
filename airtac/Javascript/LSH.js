@@ -7,7 +7,8 @@ var fT=1;
 var g=9.8;
 
 //此部分为用户输入参数
-var C=0, C0=0, MR=0, HK_L=0, HK_d=0;   //对于LRM C=C100B 单位 N N Nm   //滑块的长和宽
+var C=0, C0=0, MR=0, HK_L=0, HK_d=0;   //对于LRM C=C100B 单位 N N Nm   //滑块裸块的长和宽
+var HK_LL=0, HK_dd=0;   //滑块含端盖和内回流长度 法兰型宽度 
 var XL=""; //系列
 var XH=""; //型号
 var SYZT=1; //安装方式
@@ -60,7 +61,7 @@ var Pm_max=0;
 function PDdate()
 {
 	var x=new Date();
-	x.setFullYear(2022,5,1); //2022年6月1日
+	x.setFullYear(2022,11,31); //2022年12月31日
 	var today=new Date();
 	if (today>x)
 	{
@@ -83,11 +84,58 @@ if(IsOKrun)
 	GetUserInput();
 	Set_a_L();
 	
+	var ISOK_ToCalculation;
+	var strISOK;
+    switch (DGS)
+	{
+	case 1:
+		switch (HKS)
+		{
+		case 1:
+		    ISOK_ToCalculation=(V==0)||(fw==0)||(Ls==0)||(n==0)||(m1==0);
+			strISOK="下列数据不能为0或空白："+"\n"+"1、速度V"+"\n"+"2、负荷系数fw"+"\n"+"3、行程Ls"+"\n"+"4、每分钟的往复次数n"+"\n"+"5、质量m1";
+			break;
+		case 2:
+		    ISOK_ToCalculation=(V==0)||(fw==0)||(Ls==0)||(n==0)||(m1==0)||(Bs1==0);
+			strISOK="下列数据不能为0或空白："+"\n"+"1、速度V"+"\n"+"2、负荷系数fw"+"\n"+"3、行程Ls"+"\n"+"4、每分钟的往复次数n"+"\n"+"5、质量m1"+"\n"+"6、滑块跨距Bs1";
+			break;
+		case 3:
+		    ISOK_ToCalculation=(V==0)||(fw==0)||(Ls==0)||(n==0)||(m1==0)||(Bs1==0)||(Bs2==0);
+			strISOK="下列数据不能为0或空白："+"\n"+"1、速度V"+"\n"+"2、负荷系数fw"+"\n"+"3、行程Ls"+"\n"+"4、每分钟的往复次数n"+"\n"+"5、质量m1"+"\n"+"6、滑块跨距Bs1、Bs2";
+			break;
+		case 4:
+		    ISOK_ToCalculation=(V==0)||(fw==0)||(Ls==0)||(n==0)||(m1==0)||(Bs1==0)||(Bs2==0)||(Bs3==0);
+			strISOK="下列数据不能为0或空白："+"\n"+"1、速度V"+"\n"+"2、负荷系数fw"+"\n"+"3、行程Ls"+"\n"+"4、每分钟的往复次数n"+"\n"+"5、质量m1"+"\n"+"6、滑块跨距Bs1、Bs2、Bs3";
+			break;
+		}
+	    break;
+	case 2:
+		switch (HKS)
+		{
+		case 2:
+		    ISOK_ToCalculation=(V==0)||(fw==0)||(Ls==0)||(n==0)||(m1==0)||(Rs==0);
+			strISOK="下列数据不能为0或空白："+"\n"+"1、速度V"+"\n"+"2、负荷系数fw"+"\n"+"3、行程Ls"+"\n"+"4、每分钟的往复次数n"+"\n"+"5、质量m1"+"\n"+"6、轨道跨距Rs";
+			break;
+		case 4:
+		    ISOK_ToCalculation=(V==0)||(fw==0)||(Ls==0)||(n==0)||(m1==0)||(Rs==0)||(Bs1==0);
+			strISOK="下列数据不能为0或空白："+"\n"+"1、速度V"+"\n"+"2、负荷系数fw"+"\n"+"3、行程Ls"+"\n"+"4、每分钟的往复次数n"+"\n"+"5、质量m1"+"\n"+"6、轨道跨距Rs  滑块跨距Bs1";
+			break;
+		case 6:
+		    ISOK_ToCalculation=(V==0)||(fw==0)||(Ls==0)||(n==0)||(m1==0)||(Rs==0)||(Bs1==0)||(Bs2==0);
+			strISOK="下列数据不能为0或空白："+"\n"+"1、速度V"+"\n"+"2、负荷系数fw"+"\n"+"3、行程Ls"+"\n"+"4、每分钟的往复次数n"+"\n"+"5、质量m1"+"\n"+"6、轨道跨距Rs  滑块跨距Bs1、Bs2";
+			break;
+		case 8:
+		    ISOK_ToCalculation=(V==0)||(fw==0)||(Ls==0)||(n==0)||(m1==0)||(Rs==0)||(Bs1==0)||(Bs2==0)||(Bs3==0);
+			strISOK="下列数据不能为0或空白："+"\n"+"1、速度V"+"\n"+"2、负荷系数fw"+"\n"+"3、行程Ls"+"\n"+"4、每分钟的往复次数n"+"\n"+"5、质量m1"+"\n"+"6、轨道跨距Rs  滑块跨距Bs1、Bs2、Bs3";
+			break;
+		}
+	    break;
+	}
 
 	
-	if ((V==0)||(fw==0)||(Ls==0)||(n==0)||(m1==0)) //要增加代码：一些不能为空的数据要填
+	if (ISOK_ToCalculation) //一些不能为空的数据要填
 	{
-		window.alert("下列数据不能为0或空白："+"\n"+"1、速度V"+"\n"+"2、负荷系数fw"+"\n"+"3、行程Ls"+"\n"+"4、每分钟的往复次数n"+"\n"+"5、质量m1");
+		window.alert(strISOK);
 	}
 	else
 	{
@@ -96,7 +144,7 @@ if(IsOKrun)
 		SetPm_max();
 		SetDGS1_HKS1_T0_G0();
 		
-		fs=C0/PE_max;
+		fs=C0/PE_max;		
 		if ((XL=="LSH")||(XL=="LSD"))
 		{
 			L=Math.pow((fH*fT*C)/(fw*Pm_max),3)*50;
@@ -106,12 +154,21 @@ if(IsOKrun)
 			L=Math.pow((C)/(fw*Pm_max),3)*100;
 		}
 		Lh=L*1000/(2*Ls*0.001*n*60);
+		
+		//修正壁挂安装
+		if (SYZT==3) 
+		{
+			fs=fs/(Math.pow(0.5,1/3));
+			L=L*2;
+			Lh=Lh*2;
+		}
+		
 		SetJGTable(fs,L,Lh); //显示计算结果
 	}
 }
 else
 {
-	window.alert("beta版已到期，请联系亚德客获取新版。");
+	window.alert("版本已到期，请联系亚德客获取新版。");
 }
 }
 
@@ -123,6 +180,7 @@ function SetCSH()
 
 	//此部分为用户输入参数
 	C=0; C0=0; MR=0; HK_L=0; HK_d=0;
+    HK_LL=0; HK_dd=0;
 	XL=""; 
 	XH="";
 	SYZT=1;
@@ -179,23 +237,23 @@ function GetLSH_C_C0_XH()
 	switch(document.getElementById("ID_selectXH").value)
 	{
 		case "XH_LSH15N":
-		    C=11.3;C0=17.9;MR=0.12;XH="LSH15N";HK_L=40;HK_d=34;break;
+		    C=11.3;C0=17.9;MR=0.12;XH="LSH15N";HK_L=40;HK_d=34;HK_LL=60.2;HK_dd=47;break;
 		case "XH_LSH20N":
-		    C=18.6;C0=28.6;MR=0.27;XH="LSH20N";HK_L=52.1;HK_d=44;break;
+		    C=18.6;C0=28.6;MR=0.27;XH="LSH20N";HK_L=52.1;HK_d=44;HK_LL=76.5;HK_dd=63;break;
 		case "XH_LSH20L":
-		    C=22.2;C0=37.6;MR=0.35;XH="LSH20L";HK_L=66.1;HK_d=44;break;
+		    C=22.2;C0=37.6;MR=0.35;XH="LSH20L";HK_L=66.1;HK_d=44;HK_LL=90.5;HK_dd=63;break;
 		case "XH_LSH25N":
-		    C=26.9;C0=39.4;MR=0.44;XH="LSH25N";HK_L=58.3;HK_d=48;break;
+		    C=26.9;C0=39.4;MR=0.44;XH="LSH25N";HK_L=58.3;HK_d=48;HK_LL=83.3;HK_dd=70;break;
 		case "XH_LSH25L":
-		    C=32.9;C0=53.0;MR=0.58;XH="LSH25L";HK_L=79.7;HK_d=48;break;
+		    C=32.9;C0=53.0;MR=0.58;XH="LSH25L";HK_L=79.7;HK_d=48;HK_LL=104.7;HK_dd=70;break;
 		case "XH_LSH30N":
-		    C=37.4;C0=55.0;MR=0.66;XH="LSH30N";HK_L=70.5;HK_d=60;break;
+		    C=37.4;C0=55.0;MR=0.66;XH="LSH30N";HK_L=70.5;HK_d=60;HK_LL=95.5;HK_dd=90;break;
 		case "XH_LSH30L":
-		    C=45.7;C0=73.1;MR=0.88;XH="LSH30L";HK_L=92.9;HK_d=60;break;
+		    C=45.7;C0=73.1;MR=0.88;XH="LSH30L";HK_L=92.9;HK_d=60;HK_LL=117.9;HK_dd=90;break;
 		case "XH_LSH35N":
-		    C=50.8;C0=72.3;MR=1.05;XH="LSH35N";HK_L=79.8;HK_d=70;break;
+		    C=50.8;C0=72.3;MR=1.05;XH="LSH35N";HK_L=79.8;HK_d=70;HK_LL=108.8;HK_dd=100;break;
 		case "XH_LSH35L":
-		    C=61.9;C0=96.1;MR=1.52;XH="LSH35L";HK_L=105.4;HK_d=70;break;
+		    C=61.9;C0=96.1;MR=1.52;XH="LSH35L";HK_L=105.4;HK_d=70;HK_LL=134.4;HK_dd=100;break;
 	}
 	C=C*1000;
 	C0=C0*1000;
@@ -207,25 +265,25 @@ function GetLSD_C_C0_XH()
 	switch(document.getElementById("ID_selectXH").value)
 	{
 		case "XH_LSD15S":
-		    C=5.0;C0=9.5;MR=0.07;XH="LSD15S";HK_L=40.5;HK_d=34;break;
+		    C=5.0;C0=9.5;MR=0.07;XH="LSD15S";HK_L=40.5;HK_d=34;HK_LL=40.5;HK_dd=52;break;
 		case "XH_LSD15N":
-		    C=8.9;C0=16.5;MR=0.12;XH="LSD15N";HK_L=57.2;HK_d=34;break;
+		    C=8.9;C0=16.5;MR=0.12;XH="LSD15N";HK_L=57.2;HK_d=34;HK_LL=57.2;HK_dd=52;break;
 		case "XH_LSD20S":
-		    C=7.2;C0=13.5;MR=0.13;XH="LSD20S";HK_L=45.8;HK_d=42;break;
+		    C=7.2;C0=13.5;MR=0.13;XH="LSD20S";HK_L=45.8;HK_d=42;HK_LL=45.8;HK_dd=59;break;
 		case "XH_LSD20N":
-		    C=12.1;C0=22.4;MR=0.20;XH="LSD20N";HK_L=64.9;HK_d=42;break;
+		    C=12.1;C0=22.4;MR=0.20;XH="LSD20N";HK_L=64.9;HK_d=42;HK_LL=64.9;HK_dd=59;break;
 		case "XH_LSD25S":
-		    C=11.5;C0=20.8;MR=0.22;XH="LSD25S";HK_L=59;HK_d=48;break;
+		    C=11.5;C0=20.8;MR=0.22;XH="LSD25S";HK_L=59;HK_d=48;HK_LL=59;HK_dd=73;break;
 		case "XH_LSD25N":
-		    C=19.3;C0=34.7;MR=0.36;XH="LSD25N";HK_L=83;HK_d=48;break;
+		    C=19.3;C0=34.7;MR=0.36;XH="LSD25N";HK_L=83;HK_d=48;HK_LL=83;HK_dd=73;break;
 		case "XH_LSD30S":
-		    C=19.8;C0=30.0;MR=0.38;XH="LSD30S";HK_L=68.4;HK_d=60;break;
+		    C=19.8;C0=30.0;MR=0.38;XH="LSD30S";HK_L=68.4;HK_d=60;HK_LL=68.4;HK_dd=90;break;
 		case "XH_LSD30N":
-		    C=28.3;C0=50.3;MR=0.65;XH="LSD30N";HK_L=97;HK_d=60;break;
+		    C=28.3;C0=50.3;MR=0.65;XH="LSD30N";HK_L=97;HK_d=60;HK_LL=97;HK_dd=90;break;
 		case "XH_LSD35S":
-		    C=29.2;C0=40.7;MR=0.66;XH="LSD35S";HK_L=73.3;HK_d=70;break;
+		    C=29.2;C0=40.7;MR=0.66;XH="LSD35S";HK_L=73.3;HK_d=70;HK_LL=73.3;HK_dd=100;break;
 		case "XH_LSD35N":
-		    C=42.7;C0=70.2;MR=1.02;XH="LSD35N";HK_L=106.4;HK_d=70;break;
+		    C=42.7;C0=70.2;MR=1.02;XH="LSD35N";HK_L=106.4;HK_d=70;HK_LL=106.4;HK_dd=100;break;
 	}
 	C=C*1000;
 	C0=C0*1000;
@@ -237,25 +295,25 @@ function GetLRM_C_C0_XH()
 	switch(document.getElementById("ID_selectXH").value)
 	{
 		case "XH_LRM5N":
-		    C=0.33;C0=0.55;MR=1.68;XH="LRM5N";HK_L=10;HK_d=12;break;
+		    C=0.33;C0=0.55;MR=1.68;XH="LRM5N";HK_L=10;HK_d=12;HK_LL=18.2;HK_dd=12;break;
 		case "XH_LRM5L":
-		    C=0.48;C0=0.9;MR=2.4;XH="LRM5L";HK_L=13;HK_d=12;break;
+		    C=0.48;C0=0.9;MR=2.4;XH="LRM5L";HK_L=13;HK_d=12;HK_LL=21.2;HK_dd=12;break;
 		case "XH_LRM7N":
-		    C=1.02;C0=1.53;MR=5.42;XH="LRM7N";HK_L=13.5;HK_d=17;break;
+		    C=1.02;C0=1.53;MR=5.42;XH="LRM7N";HK_L=13.5;HK_d=17;HK_LL=24.3;HK_dd=17;break;
 		case "XH_LRM7L":
-		    C=1.43;C0=2.45;MR=9.27;XH="LRM7L";HK_L=21.7;HK_d=17;break;
+		    C=1.43;C0=2.45;MR=9.27;XH="LRM7L";HK_L=21.7;HK_d=17;HK_LL=32.5;HK_dd=17;break;
 		case "XH_LRM9N":
-		    C=1.97;C0=2.6;MR=11.84;XH="LRM9N";HK_L=18.9;HK_d=20;break;
+		    C=1.97;C0=2.6;MR=11.84;XH="LRM9N";HK_L=18.9;HK_d=20;HK_LL=31;HK_dd=20;break;
 		case "XH_LRM9L":
-		    C=2.61;C0=4.11;MR=19.73;XH="LRM9L";HK_L=30;HK_d=20;break;
+		    C=2.61;C0=4.11;MR=19.73;XH="LRM9L";HK_L=30;HK_d=20;HK_LL=42.1;HK_dd=20;break;
 		case "XH_LRM12N":
-		    C=3.04;C0=3.86;MR=23.63;XH="LRM12N";HK_L=21.7;HK_d=27;break;
+		    C=3.04;C0=3.86;MR=23.63;XH="LRM12N";HK_L=21.7;HK_d=27;HK_LL=37.6;HK_dd=27;break;
 		case "XH_LRM12L":
-		    C=3.96;C0=5.9;MR=40.96;XH="LRM12L";HK_L=32.5;HK_d=27;break;
+		    C=3.96;C0=5.9;MR=40.96;XH="LRM12L";HK_L=32.5;HK_d=27;HK_LL=48.4;HK_dd=27;break;
 		case "XH_LRM15N":
-		    C=4.27;C0=5.7;MR=45.05;XH="LRM15N";HK_L=28;HK_d=32;break;
+		    C=4.27;C0=5.7;MR=45.05;XH="LRM15N";HK_L=28;HK_d=32;HK_LL=48;HK_dd=32;break;
 		case "XH_LRM15L":
-		    C=6.53;C0=9.53;MR=70.08;XH="LRM15L";HK_L=45;HK_d=32;break;
+		    C=6.53;C0=9.53;MR=70.08;XH="LRM15L";HK_L=45;HK_d=32;HK_LL=65;HK_dd=32;break;
 	}
 	C=C*1000;
 	C0=C0*1000;
@@ -364,6 +422,19 @@ function GetUserInput()
 			Ga2=Number(document.getElementById("ID_text_Ga2").value);
 			Gt2=Number(document.getElementById("ID_text_Gt2").value);
 			Gr2=Number(document.getElementById("ID_text_Gr2").value);
+			break;
+	}
+}
+
+function GetHKXS() //取得滑块形式，返回1:四方型   返回2:法兰型
+{
+	switch (document.getElementById("ID_selectHKXS").value)
+	{
+		case "HKXS_1":
+            return 1;
+			break;
+		case "HKXS_2":
+            return 2;
 			break;
 	}
 }
@@ -658,7 +729,7 @@ function SetPm_max()
 
 function SetDGS1_HKS1_T0_G0() //单轨单块，且不加速，负载位于滑块表面中心
 {
-	if ((SYZT==1)&&(DGS==1)&&(HKS==1)&&(T1==0)&&(T3==00)&&(Br==00)&&(Bt==00)&&(Ga1==00)&&(Gt1==00)&&(Gr1==00)&&(Ga2==00)&&(Gt2==00)&&(Gr2==00))
+	if ((SYZT==1)&&(DGS==1)&&(HKS==1)&&(T1==0)&&(T3==0)&&(Br==0)&&(Bt==0)&&(Ga1==0)&&(Gt1==0)&&(Gr1==0)&&(Ga2==0)&&(Gt2==0)&&(Gr2==0))
 	{
 		PE_max=m1*10+m2*10;
 		Pm_max=PE_max;
@@ -673,14 +744,26 @@ function SetJGTable(fs,L,Lh)
 	L=L.toFixed(2);
 	Lh=Lh.toFixed(2);
 	
-	document.getElementById("tyFormJG").style.visibility="visible";
+	document.getElementById("tyFormJG").style.visibility="visible"; //显示计算结果
 	var mytb = document.getElementById("ID_table_JG");//获取表格的dom节点
     var mytd = mytb.rows[1].cells[1]; //获取X行X列的mytd单元格
     mytd.innerHTML = "　"+String(fs);   //动态修改表格的内容
+	
 	mytd = mytb.rows[2].cells[1]; //获取X行X列的mytd单元格
-    mytd.innerHTML = "　"+String(L);   //动态修改表格的内容
+	if (fs<1)
+	{mytd.innerHTML = "　fs<1，不可使用，请重新输入条件";}
+	else 
+    {mytd.innerHTML = "　"+String(L);}   //动态修改表格的内容
+	
 	mytd = mytb.rows[3].cells[1]; //获取X行X列的mytd单元格
+	if (fs<1)
+	{mytd.innerHTML = "　fs<1，不可使用，请重新输入条件";}
+	else 
     mytd.innerHTML = "　"+String(Lh);   //动态修改表格的内容
+
+	document.getElementById("ID_btn_ReInput").style.visibility="visible"; //显示重新输入按钮
+    document.getElementById("ID_btn_run").style.visibility="hidden"; //隐藏执行计算按钮
+	SetDisabledInput(); //锁定用户输入数据
 }
 
 function open_about_fw() 
@@ -796,24 +879,99 @@ function ISOK_Rs()
 {
 	if (isNaN(document.getElementById("ID_text_Rs").value)==true) //不是数字
 	{document.getElementById("ID_text_Rs").value="";}
+	else
+	{
+		var this_RS=0;
+		var min_RS=0;
+		
+		SetCSH(); //初始化所有数据
+		GetUserInput(); //取得用户输入参数
+
+		if (GetHKXS()==1)
+		{min_RS=HK_d;}
+	    else
+		{min_RS=HK_dd;}
+	
+		this_RS=Number(document.getElementById("ID_text_Rs").value);
+		
+		if (this_RS<min_RS)
+		{
+			window.alert("不能小于滑块宽度"+String(min_RS));
+			document.getElementById("ID_text_Rs").value="";
+		}
+	}
 }
 
 function ISOK_Bs1() 
 {
 	if (isNaN(document.getElementById("ID_text_Bs1").value)==true) //不是数字
 	{document.getElementById("ID_text_Bs1").value="";}
+	else
+	{
+		var this_BS=0;
+		var min_BS=0;
+		
+		SetCSH(); //初始化所有数据
+		GetUserInput(); //取得用户输入参数
+		
+		min_BS=HK_LL;
+	
+		this_BS=Number(document.getElementById("ID_text_Bs1").value);
+		
+		if (this_BS<min_BS)
+		{
+			window.alert("不能小于滑块长度"+String(min_BS));
+			document.getElementById("ID_text_Bs1").value="";
+		}
+	}
 }
 
 function ISOK_Bs2() 
 {
 	if (isNaN(document.getElementById("ID_text_Bs2").value)==true) //不是数字
 	{document.getElementById("ID_text_Bs2").value="";}
+	else
+	{
+		var this_BS=0;
+		var min_BS=0;
+		
+		SetCSH(); //初始化所有数据
+		GetUserInput(); //取得用户输入参数
+		
+		min_BS=HK_LL;
+	
+		this_BS=Number(document.getElementById("ID_text_Bs2").value);
+		
+		if (this_BS<min_BS)
+		{
+			window.alert("不能小于滑块长度"+String(min_BS));
+			document.getElementById("ID_text_Bs2").value="";
+		}
+	}
 }
 
 function ISOK_Bs3() 
 {
 	if (isNaN(document.getElementById("ID_text_Bs3").value)==true) //不是数字
 	{document.getElementById("ID_text_Bs3").value="";}
+	else
+	{
+		var this_BS=0;
+		var min_BS=0;
+		
+		SetCSH(); //初始化所有数据
+		GetUserInput(); //取得用户输入参数
+		
+		min_BS=HK_LL;
+	
+		this_BS=Number(document.getElementById("ID_text_Bs3").value);
+		
+		if (this_BS<min_BS)
+		{
+			window.alert("不能小于滑块长度"+String(min_BS));
+			document.getElementById("ID_text_Bs3").value="";
+		}
+	}
 }
 
 function ISOK_m1() 
@@ -864,6 +1022,73 @@ function ISOK_Gr2()
 	{document.getElementById("ID_text_Gr2").value="";}
 }
 
+//锁定用户输入数据
+function SetDisabledInput()
+{
+	document.getElementById("ID_selectXH").disabled=true;
+	document.getElementById("ID_selectSYZT").disabled=true;
+	document.getElementById("ID_selectDGSandHKS").disabled=true;
+	document.getElementById("ID_text_V").disabled=true;
+	document.getElementById("ID_text_fw").disabled=true;
+	document.getElementById("ID_text_T1").disabled=true;
+	document.getElementById("ID_text_T3").disabled=true;
+	document.getElementById("ID_text_Ls").disabled=true;
+	document.getElementById("ID_text_n").disabled=true;
+	document.getElementById("ID_selectHKXS").disabled=true;
+	document.getElementById("ID_text_Br").disabled=true;
+	document.getElementById("ID_text_Bt").disabled=true;
+	document.getElementById("ID_text_Rs").disabled=true;
+	document.getElementById("ID_text_Bs1").disabled=true;
+	document.getElementById("ID_text_Bs2").disabled=true;
+	document.getElementById("ID_text_Bs3").disabled=true;
+	document.getElementById("ID_selectFZnum").disabled=true;
+	document.getElementById("ID_text_m1").disabled=true;
+	document.getElementById("ID_text_Ga1").disabled=true;
+	document.getElementById("ID_text_Gt1").disabled=true;
+	document.getElementById("ID_text_Gr1").disabled=true;
+	document.getElementById("ID_text_m2").disabled=true;
+	document.getElementById("ID_text_Ga2").disabled=true;
+	document.getElementById("ID_text_Gt2").disabled=true;
+	document.getElementById("ID_text_Gr2").disabled=true;
+}
+//开放用户输入数据
+function SetEnabledInput()
+{
+	document.getElementById("ID_selectXH").disabled=false;
+	document.getElementById("ID_selectSYZT").disabled=false;
+	document.getElementById("ID_selectDGSandHKS").disabled=false;
+	document.getElementById("ID_text_V").disabled=false;
+	document.getElementById("ID_text_fw").disabled=false;
+	document.getElementById("ID_text_T1").disabled=false;
+	document.getElementById("ID_text_T3").disabled=false;
+	document.getElementById("ID_text_Ls").disabled=false;
+	document.getElementById("ID_text_n").disabled=false;
+	document.getElementById("ID_selectHKXS").disabled=false;
+	document.getElementById("ID_text_Br").disabled=false;
+	document.getElementById("ID_text_Bt").disabled=false;
+	document.getElementById("ID_text_Rs").disabled=false;
+	document.getElementById("ID_text_Bs1").disabled=false;
+	document.getElementById("ID_text_Bs2").disabled=false;
+	document.getElementById("ID_text_Bs3").disabled=false;
+	document.getElementById("ID_selectFZnum").disabled=false;
+	document.getElementById("ID_text_m1").disabled=false;
+	document.getElementById("ID_text_Ga1").disabled=false;
+	document.getElementById("ID_text_Gt1").disabled=false;
+	document.getElementById("ID_text_Gr1").disabled=false;
+	document.getElementById("ID_text_m2").disabled=false;
+	document.getElementById("ID_text_Ga2").disabled=false;
+	document.getElementById("ID_text_Gt2").disabled=false;
+	document.getElementById("ID_text_Gr2").disabled=false;
+}
+
+//重新输入
+function ToReInput()
+{
+	SetEnabledInput();
+	document.getElementById("tyFormJG").style.visibility="hidden"; //隐藏计算结果
+	document.getElementById("ID_btn_ReInput").style.visibility="hidden"; //隐藏重新输入按钮
+    document.getElementById("ID_btn_run").style.visibility="visible"; //显示执行计算按钮
+}
 function MyShowIMG1() 
 {
 	switch(document.getElementById("ID_selectSYZT").value)
@@ -1257,7 +1482,6 @@ function MyShowIMG1()
 			break;
 	}
 }
-
 
 function MyShowIMG1D() 
 {
