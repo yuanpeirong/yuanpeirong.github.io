@@ -1,1 +1,4 @@
-CreateObject("WScript.Shell").Run "cmd /c run.bat",0
+Dim myShell
+Set myShell = WScript.CreateObject ("WSCript.shell")
+myShell.run "index.html"
+Set oShell = Nothing

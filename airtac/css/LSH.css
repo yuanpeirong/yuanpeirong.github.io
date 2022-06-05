@@ -42,7 +42,7 @@
 
 #tyFormJG {/*结果显示*/
     width: 508;
-	margin: 1630px 0 0 0;
+	margin: 1680px 0 0 0;
 	padding: 0;
     position:absolute;
     left:192px;
@@ -62,36 +62,38 @@ table,tr,th,td {
 #tyForm11_2  {width: 258px;margin: 100px 0 0 0;padding: 0;position:absolute;}
 #tyForm11_3  {width: 258px;margin: 120px 0 0 0;padding: 0;position:absolute;}
 #tyForm11_4  {width: 258px;margin: 160px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_4_1  {width: 258px;margin: 200px 0 0 0;padding: 0;position:absolute;}
 
-#tyForm11_5  {width: 258px;margin: 250px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_6  {width: 258px;margin: 270px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_7  {width: 258px;margin: 310px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_8  {width: 258px;margin: 350px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_9  {width: 258px;margin: 390px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_10 {width: 258px;margin: 430px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_11 {width: 258px;margin: 470px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_5  {width: 258px;margin: 320px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_6  {width: 258px;margin: 340px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_7  {width: 258px;margin: 380px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_8  {width: 258px;margin: 420px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_9  {width: 258px;margin: 460px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_10 {width: 258px;margin: 500px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_11 {width: 258px;margin: 540px 0 0 0;padding: 0;position:absolute;}
 
-#tyForm11_12 {width: 258px;margin: 580px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_13 {width: 258px;margin: 600px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_14 {width: 258px;margin: 640px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_15 {width: 258px;margin: 680px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_16 {width: 258px;margin: 720px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_17 {width: 258px;margin: 760px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_18 {width: 258px;margin: 800px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_19 {width: 258px;margin: 840px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_12 {width: 258px;margin: 630px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_13 {width: 258px;margin: 650px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_14 {width: 258px;margin: 690px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_15 {width: 258px;margin: 730px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_16 {width: 258px;margin: 770px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_17 {width: 258px;margin: 810px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_18 {width: 258px;margin: 850px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_19 {width: 258px;margin: 890px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_20 {width: 258px;margin: 930px 0 0 0;padding: 0;position:absolute;}
 
-#tyForm11_20 {width: 258px;margin: 1050px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_21 {width: 258px;margin: 1070px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_22 {width: 258px;margin: 1110px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_23 {width: 258px;margin: 1150px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_24 {width: 258px;margin: 1190px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_25 {width: 258px;margin: 1230px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_26 {width: 258px;margin: 1270px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_27 {width: 258px;margin: 1310px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_28 {width: 258px;margin: 1350px 0 0 0;padding: 0;position:absolute;}
-#tyForm11_29 {width: 258px;margin: 1390px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_21 {width: 258px;margin: 1100px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_22 {width: 258px;margin: 1120px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_23 {width: 258px;margin: 1160px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_24 {width: 258px;margin: 1200px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_25 {width: 258px;margin: 1240px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_26 {width: 258px;margin: 1280px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_27 {width: 258px;margin: 1320px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_28 {width: 258px;margin: 1360px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_29 {width: 258px;margin: 1400px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_30 {width: 258px;margin: 1440px 0 0 0;padding: 0;position:absolute;}
 
-#tyForm11_30 {width: 258px;margin: 1450px 0 0 0;padding: 0;position:absolute;}
+#tyForm11_31 {width: 258px;margin: 1500px 0 0 0;padding: 0;position:absolute;}
 
 #tyForm31_1 {/*表单部分*/
     width: 350;
@@ -114,7 +116,7 @@ table,tr,th,td {
 }
 #tyForm31_3 {/*表单部分*/
     width: 350;
-	margin: 350px 0 0 0;
+	margin: 400px 0 0 0;
 	padding: 0;
     position:absolute;
     left:750px;
@@ -123,7 +125,7 @@ table,tr,th,td {
 }
 #tyForm31_4 {/*表单部分*/
     width: 350;
-	margin: 680px 0 0 0;
+	margin: 730px 0 0 0;
 	padding: 0;
     position:absolute;
     left:750px;
@@ -132,7 +134,7 @@ table,tr,th,td {
 }
 #tyForm31_5 {/*表单部分*/
     width: 350;
-	margin: 1150px 0 0 0;
+	margin: 1200px 0 0 0;
 	padding: 0;
     position:absolute;
     left:750px;
@@ -142,7 +144,7 @@ table,tr,th,td {
 
 #tySM2 {/*声明2*/
     width: 800px;
-	margin: 2000px 0 0 0;
+	margin: 2050px 0 0 0;
 	padding: 0;
     position:absolute;
     color: #555555;
