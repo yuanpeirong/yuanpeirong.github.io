@@ -2184,91 +2184,91 @@ function MyShowIMG1D()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_1.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_1_1_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4_1_1.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/hs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_1_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_1_1_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_1_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_1_1_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_2.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_1_2_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4_1_2.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/hs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_2_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_1_2_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_2_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_1_2_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_3.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_1_3_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4_1_3.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/hs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_3_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_1_3_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_3_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_1_3_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_4.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_1_4_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4_1_4.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/hs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_4_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_1_4_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_4_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_1_4_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_1.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_2_1_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4_2_1.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/hs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_1_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_2_1_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_1_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_2_1_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_2.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_2_2_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4_2_2.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/hs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_2_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_2_2_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_2_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_2_2_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_3.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_2_3_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4_2_3.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/hs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_3_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_2_3_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_3_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_2_3_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_4.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_2_4_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4_2_4.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/hs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_4_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_2_4_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_4_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/hs_2_4_m2.png";break;
 					}
 					break;
 			}
@@ -2277,91 +2277,91 @@ function MyShowIMG1D()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_1.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_1_1_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5_1_1.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/vs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_1_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_1_1_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_1_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_1_1_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_2.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_1_2_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5_1_2.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/vs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_2_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_1_2_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_2_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_1_2_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_3.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_1_3_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5_1_3.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/vs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_3_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_1_3_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_3_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_1_3_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_4.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_1_4_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5_1_4.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/vs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_4_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_1_4_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_4_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_1_4_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_1.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_2_1_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5_2_1.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/vs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_1_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_2_1_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_1_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_2_1_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_2.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_2_2_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5_2_2.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/vs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_2_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_2_2_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_2_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_2_2_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_3.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_2_3_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5_2_3.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/vs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_3_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_2_3_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_3_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_2_3_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_4.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_2_4_dimension.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5_2_4.png";
+					document.getElementById("ID_MyShowIMG3D").src="images/vs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_4_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_2_4_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_4_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4D").src="images/vs_2_4_m2.png";break;
 					}
 					break;
 			}
@@ -2788,91 +2788,91 @@ function MyShowIMG1M()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_1.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_1_1_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4_1_1.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/hs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_1_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_1_1_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_1_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_1_1_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_2.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_1_2_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4_1_2.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/hs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_2_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_1_2_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_2_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_1_2_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_3.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_1_3_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4_1_3.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/hs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_3_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_1_3_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_3_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_1_3_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_4.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_1_4_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4_1_4.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/hs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_4_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_1_4_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_1_4_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_1_4_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_1.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_2_1_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4_2_1.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/hs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_1_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_2_1_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_1_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_2_1_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_2.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_2_2_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4_2_2.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/hs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_2_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_2_2_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_2_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_2_2_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_3.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_2_3_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4_2_3.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/hs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_3_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_2_3_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_3_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_2_3_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_4.png";
-					document.getElementById("ID_MyShowIMG3").src="images/hs_2_4_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4_2_4.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/hs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_4_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_2_4_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/hs_2_4_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/hs_2_4_m2.png";break;
 					}
 					break;
 			}
@@ -2881,91 +2881,91 @@ function MyShowIMG1M()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_1.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_1_1_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5_1_1.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/vs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_1_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_1_1_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_1_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_1_1_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_2.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_1_2_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5_1_2.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/vs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_2_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_1_2_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_2_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_1_2_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_3.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_1_3_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5_1_3.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/vs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_3_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_1_3_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_3_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_1_3_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_4.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_1_4_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5_1_4.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/vs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_4_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_1_4_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_1_4_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_1_4_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_1.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_2_1_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5_2_1.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/vs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_1_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_2_1_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_1_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_2_1_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_2.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_2_2_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5_2_2.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/vs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_2_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_2_2_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_2_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_2_2_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_3.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_2_3_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5_2_3.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/vs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_3_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_2_3_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_3_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_2_3_m2.png";break;
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_4.png";
-					document.getElementById("ID_MyShowIMG3").src="images/vs_2_4_dimension.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5_2_4.png";
+					document.getElementById("ID_MyShowIMG3M").src="images/vs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
 						case "FZnum_1":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_4_m1.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_2_4_m1.png";break;
 						case "FZnum_2":
-						    document.getElementById("ID_MyShowIMG4").src="images/vs_2_4_m2.png";break;
+						    document.getElementById("ID_MyShowIMG4M").src="images/vs_2_4_m2.png";break;
 					}
 					break;
 			}
