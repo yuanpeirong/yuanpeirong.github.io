@@ -891,6 +891,10 @@ function SetDGS1_HKS1_T0_G0() //单轨单块，且不加速，负载位于滑块
 }
 function Set_P_YuYa()  //根据预压修正Pm_max、PE_max值,如果YuYa=0,即不考虑预压，Pm_max、PE_max不修正 
 {
+	//强制修正不同预压下系数
+	C_1=0; //因设置C_1=0,故取消 不考虑预压 选项
+	C_2=0.015;
+	C_3=0.05;
 	switch(YuYa)
 	{
 		case 1:
@@ -1580,7 +1584,7 @@ function MyShowIMG1()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_1.png";
+					document.getElementById("ID_MyShowIMG1").src="images/4-1-1.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/hs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1591,7 +1595,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_2.png";
+					document.getElementById("ID_MyShowIMG1").src="images/4-1-2.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/hs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1602,7 +1606,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_3.png";
+					document.getElementById("ID_MyShowIMG1").src="images/4-1-3.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/hs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1613,7 +1617,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1").src="images/4_1_4.png";
+					document.getElementById("ID_MyShowIMG1").src="images/4-1-4.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/hs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1624,7 +1628,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_1.png";
+					document.getElementById("ID_MyShowIMG1").src="images/4-2-1.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/hs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1635,7 +1639,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_2.png";
+					document.getElementById("ID_MyShowIMG1").src="images/4-2-2.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/hs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1646,7 +1650,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_3.png";
+					document.getElementById("ID_MyShowIMG1").src="images/4-2-3.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/hs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1657,7 +1661,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1").src="images/4_2_4.png";
+					document.getElementById("ID_MyShowIMG1").src="images/4-2-4.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/hs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1673,7 +1677,7 @@ function MyShowIMG1()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_1.png";
+					document.getElementById("ID_MyShowIMG1").src="images/5-1-1.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/vs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1684,7 +1688,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_2.png";
+					document.getElementById("ID_MyShowIMG1").src="images/5-1-2.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/vs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1695,7 +1699,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_3.png";
+					document.getElementById("ID_MyShowIMG1").src="images/5-1-3.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/vs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1706,7 +1710,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1").src="images/5_1_4.png";
+					document.getElementById("ID_MyShowIMG1").src="images/5-1-4.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/vs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1717,7 +1721,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_1.png";
+					document.getElementById("ID_MyShowIMG1").src="images/5-2-1.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/vs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1728,7 +1732,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_2.png";
+					document.getElementById("ID_MyShowIMG1").src="images/5-2-2.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/vs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1739,7 +1743,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_3.png";
+					document.getElementById("ID_MyShowIMG1").src="images/5-2-3.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/vs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -1750,7 +1754,7 @@ function MyShowIMG1()
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1").src="images/5_2_4.png";
+					document.getElementById("ID_MyShowIMG1").src="images/5-2-4.jpg";
 					document.getElementById("ID_MyShowIMG3").src="images/vs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2184,7 +2188,7 @@ function MyShowIMG1D()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1D").src="images/4_1_1.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4-1-1D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/hs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2195,7 +2199,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1D").src="images/4_1_2.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4-1-2D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/hs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2206,7 +2210,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1D").src="images/4_1_3.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4-1-3D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/hs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2217,7 +2221,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1D").src="images/4_1_4.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4-1-4D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/hs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2228,7 +2232,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1D").src="images/4_2_1.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4-2-1D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/hs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2239,7 +2243,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1D").src="images/4_2_2.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4-2-2D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/hs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2250,7 +2254,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1D").src="images/4_2_3.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4-2-3D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/hs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2261,7 +2265,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1D").src="images/4_2_4.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/4-2-4D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/hs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2277,7 +2281,7 @@ function MyShowIMG1D()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1D").src="images/5_1_1.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5-1-1D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/vs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2288,7 +2292,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1D").src="images/5_1_2.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5-1-2D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/vs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2299,7 +2303,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1D").src="images/5_1_3.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5-1-3D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/vs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2310,7 +2314,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1D").src="images/5_1_4.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5-1-4D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/vs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2321,7 +2325,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1D").src="images/5_2_1.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5-2-1D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/vs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2332,7 +2336,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1D").src="images/5_2_2.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5-2-2D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/vs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2343,7 +2347,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1D").src="images/5_2_3.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5-2-3D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/vs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2354,7 +2358,7 @@ function MyShowIMG1D()
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1D").src="images/5_2_4.png";
+					document.getElementById("ID_MyShowIMG1D").src="images/5-2-4D.jpg";
 					document.getElementById("ID_MyShowIMG3D").src="images/vs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2788,7 +2792,7 @@ function MyShowIMG1M()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1M").src="images/4_1_1.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4-1-1M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/hs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2799,7 +2803,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1M").src="images/4_1_2.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4-1-2M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/hs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2810,7 +2814,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1M").src="images/4_1_3.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4-1-3M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/hs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2821,7 +2825,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1M").src="images/4_1_4.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4-1-4M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/hs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2832,7 +2836,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1M").src="images/4_2_1.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4-2-1M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/hs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2843,7 +2847,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1M").src="images/4_2_2.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4-2-2M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/hs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2854,7 +2858,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1M").src="images/4_2_3.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4-2-3M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/hs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2865,7 +2869,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1M").src="images/4_2_4.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/4-2-4M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/hs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2881,7 +2885,7 @@ function MyShowIMG1M()
 			switch(document.getElementById("ID_selectDGSandHKS").value)
 			{
 				case "DGSandHKS_11":
-					document.getElementById("ID_MyShowIMG1M").src="images/5_1_1.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5-1-1M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/vs_1_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2892,7 +2896,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_12":
-					document.getElementById("ID_MyShowIMG1M").src="images/5_1_2.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5-1-2M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/vs_1_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2903,7 +2907,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_13":
-					document.getElementById("ID_MyShowIMG1M").src="images/5_1_3.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5-1-3M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/vs_1_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2914,7 +2918,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_14":
-					document.getElementById("ID_MyShowIMG1M").src="images/5_1_4.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5-1-4M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/vs_1_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2925,7 +2929,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_21":
-					document.getElementById("ID_MyShowIMG1M").src="images/5_2_1.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5-2-1M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/vs_2_1_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2936,7 +2940,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_22":
-					document.getElementById("ID_MyShowIMG1M").src="images/5_2_2.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5-2-2M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/vs_2_2_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2947,7 +2951,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_23":
-					document.getElementById("ID_MyShowIMG1M").src="images/5_2_3.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5-2-3M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/vs_2_3_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
@@ -2958,7 +2962,7 @@ function MyShowIMG1M()
 					}
 					break;
 				case "DGSandHKS_24":
-					document.getElementById("ID_MyShowIMG1M").src="images/5_2_4.png";
+					document.getElementById("ID_MyShowIMG1M").src="images/5-2-4M.jpg";
 					document.getElementById("ID_MyShowIMG3M").src="images/vs_2_4_dimension.png";
 					switch(document.getElementById("ID_selectFZnum").value)
 					{
