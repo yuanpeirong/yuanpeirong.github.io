@@ -1,0 +1,136 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #F5F5F5;
+	font-size: 12px;
+	color: #A19D9A;
+	font-family: Consolas, Arial, Helvetica, sans-serif;
+}
+
+#tybd {/*整个页面*/
+    width: 982px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#tyLogo {/*Logo*/
+    width: 200px;
+	margin: 20px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:192px;
+}
+
+#tyTitle {/*LogoTitle*/
+    width: 682px;
+	margin: 20px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:492px;
+    color: #000000;
+    font-size: 36px;
+	font-weight: bold;
+}
+
+#tyIMG1 {/*三张图片*/
+    width: 250px;
+	margin: 120px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:192px;
+    color: #000000;
+    font-size: 20px;
+	font-weight: bold;
+}
+
+#tyIMG2 {/*三张图片*/
+    width: 250px;
+	margin: 120px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:542px;
+    color: #000000;
+    font-size: 20px;
+	font-weight: bold;
+}
+
+#tyIMG3 {/*三张图片*/
+    width: 250px;
+	margin: 120px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:892px;
+    color: #000000;
+    font-size: 20px;
+	font-weight: bold;
+}
+
+#tySM {/*声明*/
+    width: 800px;
+	margin: 450px 0 0 0;
+	padding: 0;
+    position:absolute;
+    color: #000000;
+    font-size: 16px;
+	/*font-weight: bold;*/
+}
+
+#tySM2 {/*声明2*/
+    width: 800px;
+	margin: 550px 0 0 0;
+	padding: 0;
+    position:absolute;
+    color: #555555;
+    font-size: 16px;
+	/*font-weight: bold;*/
+}
+
+/* 未被访问的链接 */
+a:link {
+  color: blue;
+  text-decoration:none
+}
+
+/* 已被访问的链接 */
+a:visited {
+  color: #551AA5;
+  text-decoration:none
+}
+
+/* 将鼠标悬停在链接上 */
+a:hover {
+  color: #551AA5;
+  text-decoration:none
+}
+
+/* 被选择的链接 */
+a:active {
+  color: #551AA5;
+  text-decoration:none
+}
+
+#tyAbout_fw {/*关于负荷系数*/
+    width: 750px;
+	margin: 120px 0 0 0;
+	padding: 0;
+    position:absolute;
+    left:192px;
+    color: #000000;
+    font-size: 16px;
+}
+
+#tyFooter
+{
+	width: 982px;
+	margin: 0 auto;
+	padding: 0;
+	position:absolute; 
+	bottom:0;
+}
+
+table,tr,th,td {
+	border: 1px solid #aaa;
+    border-collapse: collapse;
+	cellpadding: 0;
+	cellspacing: 0;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="AirTAC,亚德客,线轨,导轨,线性滑轨,寿命计算,工具" />
+<meta name="description" content="AirTAC线性滑轨理论寿命计算" />
+<meta name="author" content="YuanPeirong" />
+<title>LRM theoretical lifespan calculation program</title>
+<link href="css/index.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/LSH.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" language="JavaScript" src="Javascript/LSH.js"></script>
+</head>
+
+<body>
+<div id="tybd">
+    <div id="tyLogo"><img src="images/AirTAC_Logo.png" width="172" height="56" /></div>
+	<div id="tyTitleLSH">LRM theoretical lifespan calculation program (beta)</div>
+	
+	<div id="tyForm11">
+		<div id="tyForm11_1"><p style="color:#0000FF;margin-top:18px;height:25px;">1.Model selection:</p></div>
+		
+	    <div id="tyForm11_2"><p style="color:#0000FF;margin-top:0px;height:25px;">2.Installation selection:</p></div>
+		<div id="tyForm11_3"><p style="margin-top:18px;height:25px;">(1)Installation type:</p></div>
+		<div id="tyForm11_4"><p style="margin-top:18px;height:25px;">(2)Num of rail and block:</p></div>
+		<div id="tyForm11_4_1"><p id="ID_rad" style="margin-top:18px;visibility:hidden">(3)Angle θ=</p></div>
+
+	    <div id="tyForm11_5"><p style="color:#0000FF;margin-top:0px;">3.Velocity condition:</p></div>
+		<div id="tyForm11_6"><p style="margin-top:18px;">(1)Velocity(V)=</p></div>
+		<div id="tyForm11_7"><p style="margin-top:18px;">(2)Load factor(fw)=</p></div>
+		<div id="tyForm11_8"><p style="margin-top:18px;">(3)Acceleration time(T1)=</p></div>
+		<div id="tyForm11_9"><p style="margin-top:18px;">(4)Deceleration time(T3)=</p></div>
+		<div id="tyForm11_10"><p style="margin-top:18px;">(5)Stroke(Ls)=</p></div>
+		<div id="tyForm11_11"><p style="margin-top:18px;">(6)Rounds per minute(n)=</p></div>
+
+		<div id="tyForm11_12"><p style="color:#0000FF;margin-top:80px;">4.Operating condition:</p></div>
+		<div id="tyForm11_13"><p style="margin-top:18px;visibility:hidden">(1)Block type:</p></div>
+		<div id="tyForm11_14"><p style="margin-top:18px;visibility:hidden">(2)Preload grade:</p></div>
+		<div id="tyForm11_15"><p style="margin-top:18px;">(1)Position of trust Br=</p></div>
+		<div id="tyForm11_16"><p style="margin-top:18px;">(2)Position of trust Bt=</p></div>
+		<div id="tyForm11_17"><p id="ID_1_Rs" style="margin-top:18px;visibility:hidden">Distance between rails Rs=</p></div>
+		<div id="tyForm11_18"><p id="ID_1_Bs1" style="margin-top:18px;visibility:hidden">Distance between blocks Bs1=</p></div>
+		<div id="tyForm11_19"><p id="ID_1_Bs2" style="margin-top:18px;visibility:hidden">Distance between blocks Bs2=</p></div>
+		<div id="tyForm11_20"><p id="ID_1_Bs3" style="margin-top:18px;visibility:hidden">Distance between blocks Bs3=</p></div>
+
+		<div id="tyForm11_21"><p style="color:#0000FF;margin-top:0px;">5.Loading selection:</p></div>
+		<div id="tyForm11_22"><p style="margin-top:18px;">(1)Num of loading:</p></div>
+		<div id="tyForm11_23"><p style="margin-top:18px;">(2)Loading1: Mass m1=</p></div>
+		<div id="tyForm11_24"><p style="margin-top:18px;">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Position Ga1=</p></div>
+		<div id="tyForm11_25"><p style="margin-top:18px;">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Position Gt1=</p></div>
+		<div id="tyForm11_26"><p style="margin-top:18px;">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Position Gr1=</p></div>
+		<div id="tyForm11_27"><p id="ID_1_m2" style="margin-top:18px;visibility:hidden">(3)Loading2: Mass m2=</p></div>
+		<div id="tyForm11_28"><p id="ID_1_Ga2" style="margin-top:18px;visibility:hidden">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Position Ga2=</p></div>
+		<div id="tyForm11_29"><p id="ID_1_Gt2" style="margin-top:18px;visibility:hidden">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Position Gt2=</p></div>
+		<div id="tyForm11_30"><p id="ID_1_Gr2" style="margin-top:18px;visibility:hidden">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Position Gr2=</p></div>
+	</div>
+	<div id="tyForm21">
+		<div id="tyForm11_1"><p><select name="selectXH" id="ID_selectXH" style="width:250px;height:25px;font-size:16px;margin-top:0px;">
+		    <option value="XH_LRM5N">LRM5N  Standard type</option>
+		    <option value="XH_LRM5L">LRM5L  Long type</option>
+		    <option value="XH_LRM7N">LRM7N  Standard type</option>
+		    <option value="XH_LRM7L">LRM7L  Long type</option>
+		    <option value="XH_LRM9N">LRM9N  Standard type</option>
+		    <option value="XH_LRM9L">LRM9L  Long type</option>
+		    <option value="XH_LRM12N">LRM12N Standard type</option>
+		    <option value="XH_LRM12L">LRM12L Long type</option>
+		    <option value="XH_LRM15N">LRM15N Standard type</option>	
+		    <option value="XH_LRM15L">LRM15L Long type</option>
+		</select></p></div>
+
+		<div id="tyForm11_3"><p><select name="selectSYZT" id="ID_selectSYZT" style="width:250px;height:25px;font-size:16px;margin-top:0px;" onchange="MyShowIMG1M()">
+		    <option value="SYZT_1">Horizontally</option>
+		    <option value="SYZT_2">Vertically</option>
+		    <option value="SYZT_3">Wall-mounted</option>
+		    <option value="SYZT_4">Laterally slope</option>
+		    <option value="SYZT_5">Axially slope</option>
+		</select></p></div>
+		<div id="tyForm11_4"><p><select name="selectDGSandHKS" id="ID_selectDGSandHKS" style="width:250px;height:25px;font-size:16px;margin-top:0px;"  onchange="MyShowIMG1M()">
+		    <option value="DGSandHKS_11">1 rail, 1 block</option>
+		    <option value="DGSandHKS_12">1 rail, 2 block</option>
+		    <option value="DGSandHKS_13">1 rail, 3 block</option>
+			<option value="DGSandHKS_14">1 rail, 4 block</option>
+		    <option value="DGSandHKS_21">2 parallel rails,1 blocks on per rail</option>
+		    <option value="DGSandHKS_22">2 parallel rails,2 blocks on per rail</option>
+		    <option value="DGSandHKS_23">2 parallel rails,3 blocks on per rail</option>
+			<option value="DGSandHKS_24">2 parallel rails,4 blocks on per rail</option>
+		</select></p></div>
+		<div id="tyForm11_4_1"><p id="ID_2_rad" style="visibility:hidden"><input type="text" name="text_rad" id="ID_text_rad" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_rad()" value=30>(°)</p></div>
+
+		<div id="tyForm11_6"><p><input type="text" name="text_V" id="ID_text_V" style="width:180px;margin-top:0px;font-size:16px;" onchange="SetFw()">(m/s)</p></div>
+		<div id="tyForm11_7"><p><input type="text" name="text_fw" id="ID_text_fw" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_fw()"> <input type="button" name="btn_about_fw" value="help" onclick="open_about_fw()" style="width:50px;"></p></div>
+		<div id="tyForm11_8"><p><input type="text" name="text_T1" id="ID_text_T1" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_T1()">(s)</p></div>
+		<div id="tyForm11_9"><p><input type="text" name="text_T3" id="ID_text_T3" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_T3()">(s)</p></div>
+		<div id="tyForm11_10"><p><input type="text" name="text_Ls" id="ID_text_Ls" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Ls()">(mm)</p></div>
+		<div id="tyForm11_11"><p><input type="text" name="text_n" id="ID_text_n" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_n()">(/min)</p></div>
+
+		<div id="tyForm11_13"><p><select name="selectHKXS" id="ID_selectHKXS" style="width:230px;height:25px;font-size:16px;margin-top:0px;visibility:hidden" >
+		    <option value="HKXS_1">Square type</option>
+		    <option value="HKXS_2">Flange type</option>
+		</select></p></div>
+		<div id="tyForm11_14"><p><select name="selectYuYa" id="ID_selectYuYa" style="width:230px;height:25px;font-size:16px;margin-top:0px;visibility:hidden" >
+			<!--<option value="YuYa_0">不考虑预压等级</option>-->
+		    <option value="YuYa_1">Standard clearance(A)</option>
+		    <option value="YuYa_2">Light preload(B)</option>
+		    <option value="YuYa_3">Medium preload(C)</option>
+		</select></p></div>
+		<div id="tyForm11_15"><p><input type="text" name="text_Br" id="ID_text_Br" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Br()">(mm)</p></div>
+		<div id="tyForm11_16"><p><input type="text" name="text_Bt" id="ID_text_Bt" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Bt()">(mm)</p></div>
+		<div id="tyForm11_17"><p id="ID_2_Rs" style="visibility:hidden"><input type="text" name="text_Rs" id="ID_text_Rs" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Rs()">(mm)</p></div>
+		<div id="tyForm11_18"><p id="ID_2_Bs1" style="visibility:hidden"><input type="text" name="text_Bs1" id="ID_text_Bs1" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Bs1()">(mm)</p></div>
+		<div id="tyForm11_19"><p id="ID_2_Bs2" style="visibility:hidden"><input type="text" name="text_Bs2" id="ID_text_Bs2" style="width:180px;margin-top:0px;font-size:16px;"  onchange="ISOK_Bs2()">(mm)</p></div>
+		<div id="tyForm11_20"><p id="ID_2_Bs3" style="visibility:hidden"><input type="text" name="text_Bs3" id="ID_text_Bs3" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Bs3()">(mm)</p></div>
+
+		<div id="tyForm11_22"><p><select name="selectFZnum" id="ID_selectFZnum" style="width:230px;height:25px;font-size:16px;margin-top:0px;" onchange="MyShowIMG1M()">
+		    <option value="FZnum_1">1 pc</option>
+		    <option value="FZnum_2">2 pcs</option>
+		</select></p></div>
+		<div id="tyForm11_23"><p><input type="text" name="text_m1" id="ID_text_m1" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_m1()">(kg)</p></div>
+		<div id="tyForm11_24"><p><input type="text" name="text_Ga1" id="ID_text_Ga1" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Ga1()">(mm)</p></div>
+		<div id="tyForm11_25"><p><input type="text" name="text_Gt1" id="ID_text_Gt1" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Gt1()">(mm)</p></div>
+		<div id="tyForm11_26"><p><input type="text" name="text_Gr1" id="ID_text_Gr1" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Gr1()">(mm)</p></div>
+		<div id="tyForm11_27"><p id="ID_2_m2" style="visibility:hidden"><input type="text" name="text_m2" id="ID_text_m2" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_m2()">(kg)</p></div>
+		<div id="tyForm11_28"><p id="ID_2_Ga2" style="visibility:hidden"><input type="text" name="text_Ga2" id="ID_text_Ga2" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Ga2()">(mm)</p></div>
+		<div id="tyForm11_29"><p id="ID_2_Gt2" style="visibility:hidden"><input type="text" name="text_Gt2" id="ID_text_Gt2" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Gt2()">(mm)</p></div>
+		<div id="tyForm11_30"><p id="ID_2_Gr2" style="visibility:hidden"><input type="text" name="text_Gr2" id="ID_text_Gr2" style="width:180px;margin-top:0px;font-size:16px;" onchange="ISOK_Gr2()">(mm)</p></div>
+		<div id="tyForm11_31"><p><input type="button" name="btn_run" id="ID_btn_run" value="Calculate" onclick="ToCalculation()" style="width:90px;height50px;font-size:16px;">　<input type="button" name="btn_ReInput" id="ID_btn_ReInput" value="retype" onclick="ToReInput()" style="width:90px;height50px;font-size:16px;visibility:hidden"></p></div>
+
+	</div>
+	<div id="tyForm31_2"><p><img id="ID_MyShowIMG1M" src="images/1-1-1M.jpg" height="300" /></p></div>
+	<div id="tyForm31_3"><p>3.Velocity graph:</p>
+	<p><img id="ID_MyShowIMG2M" src="images/img_speed.png" width="300" /></p></div>
+	<div id="tyForm31_4"><p>4.Operating diagram:</p>
+	<p><img id="ID_MyShowIMG3M" src="images/h_1_1_dimension.png" width="400" /></p></div>
+	<div id="tyForm31_5"><p>5.Loading diagram:</p>
+	<p><img id="ID_MyShowIMG4M" src="images/h_1_1_m1.png" width="400" /></p></div>
+    <div id="tyForm31_1"><p>2.Installation diagram:</p></div>
+	<div id="tyFormJG" style="visibility:hidden">
+        <table id="ID_table_JG" width=500 height=120>
+		    <caption>　</caption>
+			<tr>
+			    <th width=250>Calculated item</th>
+				<th width=250>Result</th>
+			</tr>
+			<tr>
+			    <td>　Static safety factor fs</td>
+				<td id="id_JG_fs" style="color:#0000FF;"></td>
+			</tr>
+			<tr>
+			    <td>　Nominal life L(km)</td>
+				<td id="id_JG_L" style="color:#0000FF;"></td>
+			</tr>
+			<tr>
+			    <td>　Service life time Lh(h)</td>
+				<td id="id_JG_Lh" style="color:#0000FF;"></td>
+			</tr>
+		</table>
+		<p style="color:#FF0000;margin-top:10px;height:25px;">Declaration: The above results serve as the theoretical<br/>basis of calculation only, do not serve as the actual lifespan.</p>
+		<p style="color:#000000;margin-top:10px;height:25px;">Note:<br/>1.Actual lifespan may affected by poor working condition, <br/>lubrication and installation accuracy.<br/>2.When static safety factor(fs)＜1.0, load exceeds basic<br/>static load rating of linear guide,nominal life cannot be calculated.<br/>Please re-select the model type, velocity or load and calculate.<br/>3.Equipments tend to involve vibrations or variable load during<br/>high-speed(or high-acceleration or deceleration)(V＞2m/s or a＞50m/s2)<br/>motion,test to verify is recommended.<br/>4.Please contact us if other installation types,<br/>velocity or loading conditions are required.
+		</p>
+	</div>
+	<div id="tySM2">
+        <p align="center" style="position-bottom">© Copyright AirTAC</p>
+	</div>
+</div>
+</body>
+</html>
