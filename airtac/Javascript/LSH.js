@@ -64,7 +64,7 @@ var Pm_max=0;
 function PDdate()
 {
 	var x=new Date();
-	x.setFullYear(2022,6,1); //2022年7月1日
+	x.setFullYear(2022,7,1); //2022年8月1日
 	var today=new Date();
 	if (today>x)
 	{
