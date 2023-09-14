@@ -106,7 +106,7 @@ function open_LRM()
 function PDdate()
 {
 	var x=new Date();
-	x.setFullYear(2022,7,1); //2022年8月1日
+	x.setFullYear(2023,11,31); //2023年12月31日
 	var today=new Date();
 	if (today>x)
 	{
