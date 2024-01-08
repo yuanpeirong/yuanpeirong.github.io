@@ -56,7 +56,8 @@ function bdA2(theid)
 
 	i++;if(theid==i){f1="<font color=\"#FFFFFF\">";f2="</font>";}else{f1="";f2="";}
 	document.write("<a href=\"index.html\">"+f1+ "主页"+f2+"</a>&nbsp;\r\n");
-	document.write("<a href=\"http://www.yprnet.com/blog/\">博客</a>&nbsp;\r\n");
+	//document.write("<a href=\"http://www.yprnet.com/blog/\">博客</a>&nbsp;\r\n");
+	document.write("<a href=\"https://blog.yprnet.com\">博客</a>&nbsp;\r\n");
 	i++;if(theid==i){f1="<font color=\"#FFFFFF\">";f2="</font>";}else{f1="";f2="";}
 	document.write("<a href=\"jswzlbA.html\">"+f1+"技术文章(论坛)"+f2+"</a>&nbsp;\r\n");
 	i++;if(theid==i){f1="<font color=\"#FFFFFF\">";f2="</font>";}else{f1="";f2="";}
@@ -115,7 +116,7 @@ function BRight()
 	
 	//document.write("<hr/><a target=\"_blank\" href=\"https://www.upyun.com/\"><img src=\"http://upfiles.b0.upaiyun.com/logo/90x45.png\" alt=\"UPYUN\"></a>");
 	
-	document.write("<hr/><a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/cn/\"><img alt=\"知识共享许可协议\" style=\"border-width:0\" src=\"images/88x31.png\" /></a><br />本网站所有作品采用<a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/cn/\">知识共享署名-非商业性使用-禁止演绎 3.0 许可协议</a>进行许可。");
+	document.write("<hr/><a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/3.0/cn/\"><img alt=\"知识共享许可协议\" style=\"border-width:0\" src=\"images/88x31.png\" /></a><br />本网站所有作品采用<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans\">署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。");
 	document.write("<p><hr/><a target=\"_blank\" href=\"old/index.html\">访问旧版网站</a></p>\r\n");
 	document.write("</div>\r\n");
 	document.write("</div>\r\n");
