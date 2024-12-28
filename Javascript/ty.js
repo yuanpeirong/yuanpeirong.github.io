@@ -68,6 +68,6 @@ function banquan()
 	document.write("<font color=\"#CC00FF\">2010</font><font color=\"#FF9933\">/</font><font color=\"#0000CC\">2013</font></b>及最新版本的<b><font color=\"#006600\" face=\"Courier\">Kingsoft WPS Office</font></b>软件</p>\r\n");
 	document.write("<p align=\"center\">我是WPS测试体验团成员，拥有使用不公开发行的<font color=\"#6600CC\">WPS实验室版</font>权利</p>\r\n");
 	document.write("<p align=\"center\">技术交流： <a target=\"_blank\" href=\"mailto:ypr@yprnet.com\"><font face=\"Courier\" color=\"#0000CC\"><b>ypr@yprnet.com</b></font></a></p>\r\n");
-	document.write("<p>版权所有 &copy; 2010-2013 YuanPeirong TianYuan <a href=\"#\">天远</a></p>\r\n");
+	document.write("<p>版权所有 &copy; 2010-2025 YuanPeirong TianYuan <a href=\"#\">天远</a></p>\r\n");
 	document.write("</div>\r\n");
 }
