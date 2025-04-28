@@ -149,11 +149,11 @@ function bdC()
 	if (browser=="Microsoft Internet Explorer")
 	{
 	    //if (ver=="6.0" || ver=="7.0")
-		document.write("<p align=\"center\">版权所有 &copy; 2010-2025 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a></p>\r\n<p align=\"center\"><a target=\"_blank\" href=\"https://beian.miit.gov.cn\">浙ICP备15010776号-3</a></p>");
+		document.write("<p align=\"center\">版权所有 &copy; 2010-2025 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a></p>\r\n<p align=\"center\"><a target=\"_blank\" href=\"https://beian.miit.gov.cn\">浙ICP备15010776号-3</a>&nbsp&nbsp<img border=\"0\" src=\"images/gonganbeian.png\" width=\"14.4\" height=\"16\">&nbsp<a href=\"https://beian.mps.gov.cn/#/query/webSearch?code=33028302000779\" rel=\"noreferrer\" target=\"_blank\">浙公网安备33028302000779号</a></p>");
 	}
 	else
 	{
-		document.write("<p align=\"center\">版权所有 &copy; 2010-2025 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a>&nbsp;<script src=\"http://s96.cnzz.com/stat.php?id=4909183&web_id=4909183&show=pic1\" language=\"JavaScript\"></script></p>\r\n<p align=\"center\"><a target=\"_blank\" href=\"https://beian.miit.gov.cn\">浙ICP备15010776号-3</a></p>"
+		document.write("<p align=\"center\">版权所有 &copy; 2010-2025 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a>&nbsp;<script src=\"http://s96.cnzz.com/stat.php?id=4909183&web_id=4909183&show=pic1\" language=\"JavaScript\"></script></p>\r\n<p align=\"center\"><a target=\"_blank\" href=\"https://beian.miit.gov.cn\">浙ICP备15010776号-3</a>&nbsp&nbsp<img border=\"0\" src=\"images/gonganbeian.png\" width=\"14.4\" height=\"16\">&nbsp<a href=\"https://beian.mps.gov.cn/#/query/webSearch?code=33028302000779\" rel=\"noreferrer\" target=\"_blank\">浙公网安备33028302000779号</a></p>"
 		
 		);
 	}
