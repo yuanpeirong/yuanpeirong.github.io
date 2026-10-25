@@ -12,10 +12,8 @@ function bdA()
 	document.write("<div class=\"cAUR\">\r\n");
 	// document.write("<p>因为软件，所以热爱！</p>\r\n");
 	// document.write("<p>因为热爱，所以编程！</p>\r\n");
-	document.write("<form method=\"get\" action=\"http://www.soso.com/q\" target=\"_blank\">\r\n");
-	document.write("<input class=\"text\" type=\"text\" name=\"w\" size=\"30\" maxlength=\"50\">&nbsp;<input class=\"btn\" type=\"submit\" value=\"搜索\">\r\n");
-	document.write("<input type=\"hidden\" name=\"site\" value=\"www.yprnet.com\">\r\n");
-	document.write("<input type=\"hidden\" name=\"ch\" value=\"website\">\r\n");
+	document.write("<form method=\"get\" action=\"https://www.bing.com/search\" target=\"_blank\" rel=\"noopener noreferrer\">\r\n");
+	document.write("<input class=\"text\" type=\"text\" name=\"q\" size=\"30\" maxlength=\"100\" placeholder=\"Bing 搜索\">&nbsp;<input class=\"btn\" type=\"submit\" value=\"搜索\">\r\n");
 	document.write("</form>\r\n");
 	document.write("</div>\r\n");
 	document.write("</div>\r\n");
@@ -34,7 +32,7 @@ function bdA()
 	document.write("<div id=\"ADR\">\r\n");
 	document.write("<div class=\"cADR\">\r\n");
 	document.write("<p>天远郑重声明并承诺:</p>\r\n");
-	document.write("<p><marquee style=\"color: #EEEEEE; font-size: 12pt;\">所有软件和信息纯为个人爱好！本站无广告，不收费，不营利！本站作品均为原创，禁止转载！</marquee></p>\r\n");
+	document.write("<p style=\"color:#EEEEEE;font-size:12pt;\">所有软件和信息纯为个人爱好！本站无广告，不收费，不营利！本站作品均为原创，禁止转载！</p>\r\n");
 	document.write("<p>网站全新自主设计，纯代码手工打造！</p>\r\n");
 	document.write("<p>带来更强更佳的视觉体验，欢迎访问！</p>\r\n");
 	document.write("</div>\r\n");
@@ -143,20 +141,7 @@ function bdC()
 	//document.write("<p align=\"center\">我是WPS测试体验团成员，拥有使用不公开发行的WPS实验室版权利</p>\r\n");
 	document.write("<p align=\"center\">技术交流： <a target=\"_blank\" href=\"mailto:ypr@yprnet.com\">ypr@yprnet.com</a>、<a target=\"_blank\" href=\"mailto:ypr@yuanpeirong.com\">ypr@yuanpeirong.com</a></p>\r\n");
 	
-	var browser=navigator.appName
-	//var b_version=navigator.appVersion
-	//var ver=b_version.slice(22,25)
-	if (browser=="Microsoft Internet Explorer")
-	{
-	    //if (ver=="6.0" || ver=="7.0")
-		document.write("<p align=\"center\">版权所有 &copy; 2010-2026 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a></p>\r\n<p align=\"center\"><a target=\"_blank\" href=\"https://beian.miit.gov.cn\">浙ICP备15010776号-3</a>&nbsp&nbsp<img border=\"0\" src=\"images/gonganbeian.png\" width=\"14.4\" height=\"16\">&nbsp<a href=\"https://beian.mps.gov.cn/#/query/webSearch?code=33028302000779\" rel=\"noreferrer\" target=\"_blank\">浙公网安备33028302000779号</a></p>");
-	}
-	else
-	{
-		document.write("<p align=\"center\">版权所有 &copy; 2010-2026 <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"http://www.yprnet.com/\">天远</a>&nbsp;<script src=\"http://s96.cnzz.com/stat.php?id=4909183&web_id=4909183&show=pic1\" language=\"JavaScript\"></script></p>\r\n<p align=\"center\"><a target=\"_blank\" href=\"https://beian.miit.gov.cn\">浙ICP备15010776号-3</a>&nbsp&nbsp<img border=\"0\" src=\"images/gonganbeian.png\" width=\"14.4\" height=\"16\">&nbsp<a href=\"https://beian.mps.gov.cn/#/query/webSearch?code=33028302000779\" rel=\"noreferrer\" target=\"_blank\">浙公网安备33028302000779号</a></p>"
-		
-		);
-	}
+	document.write("<p align=\"center\">版权所有 &copy; 2010-2026 <a title=\"访问天远网站\" href=\"https://www.yprnet.com/\" rel=\"noopener noreferrer\">YuanPeirong TianYuan</a> All Rights Reserved. Powered By <a title=\"访问天远网站\" href=\"https://www.yprnet.com/\" rel=\"noopener noreferrer\">天远</a></p>\r\n<p align=\"center\"><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://beian.miit.gov.cn\">浙ICP备15010776号-3</a>&nbsp;&nbsp;<img border=\"0\" src=\"images/gonganbeian.png\" width=\"14.4\" height=\"16\" alt=\"公安备案\">&nbsp;<a href=\"https://beian.mps.gov.cn/#/query/webSearch?code=33028302000779\" rel=\"noreferrer\" target=\"_blank\">浙公网安备33028302000779号</a></p>");
 	
 	document.write("</div>\r\n");
 	document.write("</div>\r\n");
